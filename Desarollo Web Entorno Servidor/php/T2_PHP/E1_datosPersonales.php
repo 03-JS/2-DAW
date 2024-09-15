@@ -6,7 +6,7 @@ $apellido2 = "Ortiz";
 $domicilio = "no me acuerdo";
 $codigoPostal = "03700";
 $telefono = "666666666";
-$profesion = "Técnico superior en DAM";
+$profesion = "Técnico superior en DAM y DAW";
 
 echo "Nombre: $nombre";
 echo "<br>";
