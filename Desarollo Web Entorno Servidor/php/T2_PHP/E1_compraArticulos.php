@@ -45,6 +45,6 @@ if ($frenos == 0 || $aceite == 0 || $ruedas == 0) {
     echo "<br>";
     echo "<b>Número de elementos solicitados: " . $frenos + $aceite + $ruedas . "<br></b>";
     echo "<b>Subtotal: " . $total . "€<br></b>";
-    echo "<b>Total con el IVA: " . $total * 1.21 . "€<br></b>"; // 21% IVA
+    echo "<b>Total con el IVA: " . $total * 0.21 . "€<br></b>"; // 21% IVA
 }
 ?>
