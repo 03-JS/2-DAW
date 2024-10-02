@@ -1,6 +1,6 @@
 <?php
 
-function CreaEmail($str, $str1, $str2, &$res) {
+function CreaEmail(&$res, $str = "correo", $str1 = "@gmail", $str2 = ".com") {
     $res = $str . $str1 . $str2;
 }
 
