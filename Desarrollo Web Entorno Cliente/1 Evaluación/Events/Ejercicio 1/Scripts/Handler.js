@@ -22,7 +22,7 @@ dniInput.onblur = () => {
 passInput.onblur = () => {
     if (passInput.value.length != 8) errStr += "La contraseña ha de tener un mínimo de 8 carácteres\n";
     if (!/^[A-Za-z]+$/.test(passInput.value)) errStr += "La contraseña ha de contener una letra mayúscula y una minúscula\n";
-    if (!/^\d+$/.test(passInput.value)) errStr += "La contraseña ha de contener un número\n";
+    if (!/\d/.test(passInput.value)) errStr += "La contraseña ha de contener un número\n";
 }
 rePassInput.onblur = () => {
     if (rePassInput.value != passInput.value) errStr += "La contraseña no es la misma\n";
