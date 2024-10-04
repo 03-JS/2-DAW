@@ -1,0 +1,87 @@
+body {
+  width: 100%;
+  margin: auto;
+}
+
+header {
+  background-color: dodgerblue;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+
+header ul {
+  list-style-type: none;
+}
+
+header li {
+  display: inline-block;
+  margin-inline: 10px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+a {
+  color: blue;
+}
+
+.project {
+  background-color: rgb(240, 240, 240);
+  padding: 10px;
+  margin-block: 15px;
+  border: 1px solid rgb(190, 190, 190);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.project h3 {
+  color: dodgerblue;
+  margin-left: 10px;
+}
+
+.project p {
+  margin-left: 10px;
+}
+
+.form-input {
+  width: 100%;
+  margin-block: 5px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.form-btn {
+  background-color: dodgerblue;
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 12px 25px;
+  color: white;
+  border: none;
+  margin-top: 5px;
+}
+
+#bio p {
+  font-style: italic;
+}
+
+#bio {
+  width: 50%;
+  margin: auto;
+  margin-top: 15px;
+}
+
+#projects {
+  width: 50%;
+  margin: auto;
+  margin-top: 45px;
+}
+
+#contact {
+  width: 50%;
+  margin: auto;
+  margin-top: 55px;
+}
