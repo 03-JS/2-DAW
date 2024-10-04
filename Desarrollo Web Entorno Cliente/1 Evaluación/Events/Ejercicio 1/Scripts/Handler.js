@@ -8,8 +8,8 @@ let ipInput = document.getElementById("ip");
 let submitButton = document.getElementById("bttn");
 let errStr = "";
 
-nameInput.onblur = () => { if (/^\d+$/.test(nameInput.value)) errStr += "El nombre no puede tener carácteres numéricos\n"; }
-surInput.onblur = () => { if (/^\d+$/.test(surInput.value)) errStr += "Los apellidos no pueden tener carácteres numéricos\n"; }
+nameInput.onblur = () => { if (/\d/.test(nameInput.value)) errStr += "El nombre no puede tener carácteres numéricos\n"; }
+surInput.onblur = () => { if (/\d/.test(surInput.value)) errStr += "Los apellidos no pueden tener carácteres numéricos\n"; }
 emailInput.onblur = () => {
     if (!emailInput.value.includes("@")) errStr += "El correo ha de incluir un '@'\n";
     if (!emailInput.value.includes(".")) errStr += "El correo ha de incluir un '.'\n";
@@ -35,4 +35,5 @@ ipInput.onblur = () => {
 
 submitButton.onclick = () => {
     if (errStr != "") alert(errStr);
+    errStr = "";
 }
