@@ -4,12 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario</title>
+    <style>
+      .correct {
+        border: 1px solid lime;
+      }
+
+      .wrong {
+        border: 1px solid red;
+      }
+
+    </style>
   </head>
   <body>
     <form action="">
       <h3>Formulario Total</h3>
       <label for="name">Nombre:</label>
-      <input type="text" name="nombre" id="name" />
+      <input type="text" name="nombre" id="username" />
       <br /><br />
       <label for="surnames">Apellidos:</label>
       <input type="text" name="apellidos" id="surnames" />
@@ -24,7 +34,7 @@
       <input type="password" name="passwd" id="passwd" />
       <br /><br />
       <label for="repeat_passwd">Repetir password:</label>
-      <input type="password" name="repeat_passwd" id="repeat_passwd" />
+      <input type="password" name="repeat_passwd" id="repeatPasswd" />
       <br /><br />
       <label for="ip">IP Equipo:</label>
       <input type="text" name="ip" id="ip" />
