@@ -9,15 +9,15 @@ div {
   margin: 30px;
 }
 
+button {
+    margin: auto;
+    padding: 5px 10px;
+    border: 1px solid grey;
+    cursor: pointer;
+  }
+
 .circle {
   border-radius: 50%;
-}
-
-.bttn {
-  margin: auto;
-  padding: 5px 10px;
-  border: 1px solid grey;
-  cursor: pointer;
 }
 
 #one {
