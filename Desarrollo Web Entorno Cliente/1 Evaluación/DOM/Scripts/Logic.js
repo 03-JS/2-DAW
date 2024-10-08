@@ -22,7 +22,6 @@ function TransformShape(element) {
 
 function DeleteElements(elements) {
     for (let i = 0; i < elements.length; i++) {
-        let element = document.querySelector(elements[i]);
-        element.remove();
+        elements[i].remove();
     }
 }
