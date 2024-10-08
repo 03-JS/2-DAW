@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./Scripts/Logic.js"></script>
+    <link rel="stylesheet" href="./Style Sheets/E1 Style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <table>
+        <tr>
+          <td>
+            <div
+              id="one"
+              class="shadowed"
+              onmouseover="ChangeShape(this)"
+              onmouseout="RestoreShape(this)"
+              onmousedown="RemoveShadow(this)"
+              onmouseup="AddShadow(this)"
+              ondblclick="TransformShape(this)"
+            ></div>
+          </td>
+          <td>
+            <div
+              id="two"
+              class="shadowed"
+              onmouseover="ChangeShape(this)"
+              onmouseout="RestoreShape(this)"
+              onmousedown="RemoveShadow(this)"
+              onmouseup="AddShadow(this)"
+              ondblclick="TransformShape(this)"
+            ></div>
+          </td>
+          <td>
+            <div
+              id="three"
+              class="shadowed"
+              onmouseover="ChangeShape(this)"
+              onmouseout="RestoreShape(this)"
+              onmousedown="RemoveShadow(this)"
+              onmouseup="AddShadow(this)"
+              ondblclick="TransformShape(this)"
+            ></div>
+          </td>
+          <td>
+            <div
+              id="four"
+              class="shadowed"
+              onmouseover="ChangeShape(this)"
+              onmouseout="RestoreShape(this)"
+              onmousedown="RemoveShadow(this)"
+              onmouseup="AddShadow(this)"
+              ondblclick="TransformShape(this)"
+            ></div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <button
+              class="bttn"
+              id="bttnOne"
+              onclick="DeleteElements(['#one', '#bttnOne'])"
+            >
+              Eliminar
+            </button>
+          </td>
+          <td>
+            <button
+              class="bttn"
+              id="bttnTwo"
+              onclick="DeleteElements(['#two', '#bttnTwo'])"
+            >
+              Eliminar
+            </button>
+          </td>
+          <td>
+            <button
+              class="bttn"
+              id="bttnThree"
+              onclick="DeleteElements(['#three', '#bttnThree'])"
+            >
+              Eliminar
+            </button>
+          </td>
+          <td>
+            <button
+              class="bttn"
+              id="bttnFour"
+              onclick="DeleteElements(['#four', '#bttnFour'])"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
