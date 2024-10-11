@@ -97,9 +97,9 @@ function AddDeleteEvent(element) {
 
 function AddEditEvent(element) {
     element.addEventListener("click", (event) => {
-        document.querySelector(`#username-${index}`).disabled = false;
-        document.querySelector(`#surname-${index}`).disabled = false;
-        document.querySelector(`#dni-${index}`).disabled = false;
+        document.querySelector(`#content-${index}, #username-${index}`).disabled = false;
+        document.querySelector(`#content-${index}, #surname-${index}`).disabled = false;
+        document.querySelector(`#content-${index}, #dni-${index}`).disabled = false;
         event.target.disabled = true;
         event.target.classList.remove("enabled");
     })
