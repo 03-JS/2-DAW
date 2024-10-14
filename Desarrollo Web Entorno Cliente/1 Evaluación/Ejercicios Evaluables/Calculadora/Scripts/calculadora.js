@@ -20,6 +20,7 @@ function Main() {
     divide.addEventListener("mousedown", AddOpToDisplay);
     multiply.addEventListener("mousedown", AddOpToDisplay);
     percentage.addEventListener("mousedown", AddOpToDisplay);
+    comma.addEventListener("mousedown", AddCommaToDisplay);
     parentheses.addEventListener("mousedown", AddParentheses);
     equals.addEventListener("mousedown", Calculate);
 }
