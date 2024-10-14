@@ -1,5 +1,8 @@
 <?php
 
+echo "<h2>Conversión con control de errores</h2>";
+echo "<p><b>Realizamos la conversión a US Dollars</b></p>";
+
 if (empty($_GET["num"])) {
     echo "<b>Error: no hay valor</b>";
     return;
