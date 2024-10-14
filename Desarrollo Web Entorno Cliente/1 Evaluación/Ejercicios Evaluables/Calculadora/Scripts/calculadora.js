@@ -33,32 +33,29 @@ function RemoveShadow(element) {
     element.classList.remove("pressed");
 }
 
-function AddToDisplay(value, element, replace) {
-    if (display.value == "0" || replace) display.value = value;
+function AddToDisplay(value, replace) {
+    if (replace) display.value = value;
     else display.value += value;
-    element.classList.add("pressed");
 }
 
 function AddNumToDisplay(event) {
     if (display.value[display.value.length -1 ] == ")" ) return;
-    AddToDisplay(GetEventValue(event), event.target);
+    AddToDisplay(GetEventValue(event), display.value == "0");
     opDisabled = false;
 }
 
 function AddOpToDisplay(event) {
-    if (display.value == "0") return;
     let eventValue = GetEventValue(event);
     if (!opDisabled) {
-        AddToDisplay(eventValue == "*" ? "x" : eventValue, event.target);
+        AddToDisplay(eventValue == "*" ? "x" : eventValue, false);
         opDisabled = true;
         comDisabled = false;
     }
 }
 
 function AddCommaToDisplay(event) {
-    if (display.value == "0") return;
     if (!opDisabled && !comDisabled && /^\d+$/.test(display.value[display.value.length - 1])) {
-        AddToDisplay(GetEventValue(event), comma);
+        AddToDisplay(GetEventValue(event), false);
         opDisabled = true;
         comDisabled = true;
     }
@@ -67,7 +64,7 @@ function AddCommaToDisplay(event) {
 function AddParentheses() {
     display.value = display.value.replaceAll(/[()]/g, "");
     if (display.value == "") display.value = "0";
-    AddToDisplay(display.value.replace(/(?<!\()\d+(\.\d+)?(?!\))/g, "($&)"), parentheses, true);
+    AddToDisplay(display.value.replace(/(?<!\()\d+(\.\d+)?(?!\))/g, "($&)"), true);
 }
 
 function HandleKeyboardInput(event) {
