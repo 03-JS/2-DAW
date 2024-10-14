@@ -29,8 +29,9 @@ function GetEventValue(event) {
     return event.key ? event.key : event.target.textContent.trim();
 }
 
-function RemoveShadow(element) {
-    element.classList.remove("pressed");
+function ToggleButtonShadow(element) {
+    if (element.classList.contains("pressed")) element.classList.remove("pressed");
+    else element.classList.add("pressed");
 }
 
 function AddToDisplay(value, replace) {
