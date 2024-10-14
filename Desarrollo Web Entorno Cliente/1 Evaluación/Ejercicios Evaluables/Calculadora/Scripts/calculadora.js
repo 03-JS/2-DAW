@@ -2,42 +2,45 @@ let opDisabled = false;
 let comDisabled = false;
 
 function Main() {
-    AddEventListeners();
-}
-
-function AddEventListeners() {
     document.addEventListener("keydown", HandleKeyboardInput);
-    clear.addEventListener("click", Clear);
-    remove.addEventListener("click", Remove);
-    one.addEventListener("click", AddNumToDisplay);
-    two.addEventListener("click", AddNumToDisplay);
-    three.addEventListener("click", AddNumToDisplay);
-    four.addEventListener("click", AddNumToDisplay);
-    five.addEventListener("click", AddNumToDisplay);
-    six.addEventListener("click", AddNumToDisplay);
-    seven.addEventListener("click", AddNumToDisplay);
-    eight.addEventListener("click", AddNumToDisplay);
-    nine.addEventListener("click", AddNumToDisplay);
-    zero.addEventListener("click", AddNumToDisplay);
-    add.addEventListener("click", AddOpToDisplay);
-    substract.addEventListener("click", AddOpToDisplay);
-    divide.addEventListener("click", AddOpToDisplay);
-    multiply.addEventListener("click", AddOpToDisplay);
-    percentage.addEventListener("click", AddOpToDisplay);
-    equals.addEventListener("click", Calculate);
+    clear.addEventListener("mousedown", Clear);
+    remove.addEventListener("mousedown", Remove);
+    one.addEventListener("mousedown", AddNumToDisplay);
+    two.addEventListener("mousedown", AddNumToDisplay);
+    three.addEventListener("mousedown", AddNumToDisplay);
+    four.addEventListener("mousedown", AddNumToDisplay);
+    five.addEventListener("mousedown", AddNumToDisplay);
+    six.addEventListener("mousedown", AddNumToDisplay);
+    seven.addEventListener("mousedown", AddNumToDisplay);
+    eight.addEventListener("mousedown", AddNumToDisplay);
+    nine.addEventListener("mousedown", AddNumToDisplay);
+    zero.addEventListener("mousedown", AddNumToDisplay);
+    add.addEventListener("mousedown", AddOpToDisplay);
+    substract.addEventListener("mousedown", AddOpToDisplay);
+    divide.addEventListener("mousedown", AddOpToDisplay);
+    multiply.addEventListener("mousedown", AddOpToDisplay);
+    percentage.addEventListener("mousedown", AddOpToDisplay);
+    parentheses.addEventListener("mousedown", AddParentheses);
+    equals.addEventListener("mousedown", Calculate);
 }
 
 function GetEventValue(event) {
     return event.key ? event.key : event.target.textContent.trim();
 }
 
-function AddToDisplay(value) {
-    if (display.value == "0") display.value = value;
+function RemoveShadow(element) {
+    element.classList.remove("pressed");
+}
+
+function AddToDisplay(value, element, replace) {
+    if (display.value == "0" || replace) display.value = value;
     else display.value += value;
+    element.classList.add("pressed");
 }
 
 function AddNumToDisplay(event) {
-    AddToDisplay(GetEventValue(event));
+    if (display.value[display.value.length -1 ] == ")" ) return;
+    AddToDisplay(GetEventValue(event), event.target);
     opDisabled = false;
 }
 
@@ -45,19 +48,25 @@ function AddOpToDisplay(event) {
     if (display.value == "0") return;
     let eventValue = GetEventValue(event);
     if (!opDisabled) {
-        AddToDisplay(eventValue == "*" ? "x" : eventValue);
+        AddToDisplay(eventValue == "*" ? "x" : eventValue, event.target);
+        opDisabled = true;
+        comDisabled = false;
     }
-    opDisabled = true;
-    comDisabled = false;
 }
 
 function AddCommaToDisplay(event) {
     if (display.value == "0") return;
-    if (!opDisabled && !comDisabled) {
-        AddToDisplay(GetEventValue(event));
+    if (!opDisabled && !comDisabled && /^\d+$/.test(display.value[display.value.length - 1])) {
+        AddToDisplay(GetEventValue(event), comma);
+        opDisabled = true;
+        comDisabled = true;
     }
-    comDisabled = true;
-    opDisabled = true;
+}
+
+function AddParentheses() {
+    display.value = display.value.replaceAll(/[()]/g, "");
+    if (display.value == "") display.value = "0";
+    AddToDisplay(display.value.replace(/(?<!\()\d+(\.\d+)?(?!\))/g, "($&)"), parentheses, true);
 }
 
 function HandleKeyboardInput(event) {
@@ -66,6 +75,8 @@ function HandleKeyboardInput(event) {
     if (event.key == ".") AddCommaToDisplay(event);
     if (event.key.toUpperCase() == "C") Clear();
     if (event.key == "Backspace") Remove();
+    if (event.key == "Enter" || event.key == "=") Calculate();
+    if (event.key == "(" || event.key == ")") AddParentheses();
 }
 
 function Clear() {
@@ -73,8 +84,7 @@ function Clear() {
 }
 
 function Remove() {
-    console.log(display.value[display.value.length - 1]);
-    if (/[+x\/%-]/.test(display.value[display.value.length - 1])) opDisabled = false;
+    if (/[+x\/%-\.]/.test(display.value[display.value.length - 1])) opDisabled = false;
     if (display.value[display.value.length - 1] == ".") comDisabled = false;
     if (display.value.length == 1) display.value = 0;
     else display.value = display.value.substring(0, display.value.length - 1);
