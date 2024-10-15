@@ -66,8 +66,8 @@ function AddParentheses() {
     if (/[+x\/%-\.]/.test(display.value[display.value.length - 1])) return;
     display.value = display.value.replaceAll(/[()]/g, "");
     if (display.value == "") display.value = "0";
-    // AddToDisplay(display.value.replace(/(?<!\()\d+(\.\d+)?(?!\))/g, "($&)"), true);
     AddToDisplay("(" + display.value + ")", true);
+    // AddToDisplay(display.value.replace(/(?<!\()\d+(\.\d+)?(?!\))/g, "($&)"), true);
 }
 
 function HandleKeyboardInput(event) {
