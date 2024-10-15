@@ -26,7 +26,7 @@ function Main() {
 }
 
 function GetEventValue(event) {
-    return event.key ? event.key : event.target.textContent.trim();
+    return event.key ? event.key.toLowerCase() : event.target.textContent.trim();
 }
 
 function ToggleButtonShadow(element) {
@@ -70,7 +70,7 @@ function AddParentheses() {
 
 function HandleKeyboardInput(event) {
     if (/^\d+$/.test(event.key)) AddNumToDisplay(event);
-    if (/[+*x\/%-]/.test(event.key)) AddOpToDisplay(event);
+    if (/[+*xX\/%-]/.test(event.key)) AddOpToDisplay(event);
     if (event.key == ".") AddCommaToDisplay(event);
     if (event.key.toUpperCase() == "C") Clear();
     if (event.key == "Backspace") Remove();
