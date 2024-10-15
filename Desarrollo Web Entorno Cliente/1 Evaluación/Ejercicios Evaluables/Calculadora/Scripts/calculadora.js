@@ -47,7 +47,7 @@ function AddNumToDisplay(event) {
 
 function AddOpToDisplay(event) {
     let eventValue = GetEventValue(event);
-    if (!opDisabled) {
+    if (!opDisabled && /\d|\)$/.test(display.value[display.value.length - 1])) {
         AddToDisplay(eventValue == "*" ? "x" : eventValue, false);
         opDisabled = true;
         comDisabled = false;
