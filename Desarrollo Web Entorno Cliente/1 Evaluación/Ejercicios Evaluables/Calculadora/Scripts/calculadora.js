@@ -5,27 +5,14 @@ let buttons;
 function Main() {
     buttons = document.querySelectorAll(".boton");
     for (let button of buttons) {
+        if (/^\d+$/.test(button.textContent.trim().toLowerCase())) button.addEventListener("mousedown", AddNumToDisplay);
+        if (/[+x\/%-\.]/.test(button.textContent.trim().toLowerCase())) button.addEventListener("mousedown", AddOpToDisplay);
         button.addEventListener("mouseup", HandleButtonShadow);
     }
     document.addEventListener("keydown", HandleKeyboardInput);
     document.addEventListener("keyup", HandleButtonShadow);
     clear.addEventListener("mousedown", Clear);
     remove.addEventListener("mousedown", Remove);
-    one.addEventListener("mousedown", AddNumToDisplay);
-    two.addEventListener("mousedown", AddNumToDisplay);
-    three.addEventListener("mousedown", AddNumToDisplay);
-    four.addEventListener("mousedown", AddNumToDisplay);
-    five.addEventListener("mousedown", AddNumToDisplay);
-    six.addEventListener("mousedown", AddNumToDisplay);
-    seven.addEventListener("mousedown", AddNumToDisplay);
-    eight.addEventListener("mousedown", AddNumToDisplay);
-    nine.addEventListener("mousedown", AddNumToDisplay);
-    zero.addEventListener("mousedown", AddNumToDisplay);
-    add.addEventListener("mousedown", AddOpToDisplay);
-    substract.addEventListener("mousedown", AddOpToDisplay);
-    divide.addEventListener("mousedown", AddOpToDisplay);
-    multiply.addEventListener("mousedown", AddOpToDisplay);
-    percentage.addEventListener("mousedown", AddOpToDisplay);
     comma.addEventListener("mousedown", AddCommaToDisplay);
     parentheses.addEventListener("mousedown", AddParentheses);
     equals.addEventListener("mousedown", Calculate);
