@@ -32,7 +32,7 @@ function Main() {
 }
 
 function GetEventValue(event) {
-    return event.key ? event.key.toLowerCase() : event.target.textContent.trim();
+    return event.key ? event.key.toLowerCase() : event.target.textContent.trim().toLowerCase();
 }
 
 function HandleButtonShadow(event) {
