@@ -60,5 +60,5 @@
 }
 
 .pressed {
-    box-shadow: inset 5px 5px 5px 5px rgb(55, 55, 55);
+    box-shadow: inset 1px 1px 1px 5px rgb(55, 55, 55);
 }

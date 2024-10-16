@@ -1,8 +1,14 @@
 let opDisabled = false;
 let comDisabled = false;
+let buttons;
 
 function Main() {
+    buttons = document.querySelectorAll(".boton");
+    for (let button of buttons) {
+        button.addEventListener("mouseup", HandleButtonShadow);
+    }
     document.addEventListener("keydown", HandleKeyboardInput);
+    document.addEventListener("keyup", HandleButtonShadow);
     clear.addEventListener("mousedown", Clear);
     remove.addEventListener("mousedown", Remove);
     one.addEventListener("mousedown", AddNumToDisplay);
@@ -29,9 +35,18 @@ function GetEventValue(event) {
     return event.key ? event.key.toLowerCase() : event.target.textContent.trim();
 }
 
-function ToggleButtonShadow(element) {
-    if (element.classList.contains("pressed")) element.classList.remove("pressed");
-    else element.classList.add("pressed");
+function HandleButtonShadow(event) {
+    let eventValue = GetEventValue(event);
+    if (eventValue == "*") eventValue = "x";
+    if (eventValue == "backspace") eventValue = "«";
+    if (eventValue == "enter") eventValue = "=";
+    if (eventValue == "(" || eventValue == ")") eventValue = "()";
+    for (let button of buttons) {
+        if (button.textContent.trim().toLowerCase() == eventValue) {
+            if (button.classList.contains("pressed")) button.classList.remove("pressed");
+            else button.classList.add("pressed");
+        }
+    }
 }
 
 function AddToDisplay(value, replace) {
@@ -43,6 +58,7 @@ function AddNumToDisplay(event) {
     if (display.value[display.value.length - 1] == ")") return;
     AddToDisplay(GetEventValue(event), display.value == "0");
     opDisabled = false;
+    HandleButtonShadow(event);
 }
 
 function AddOpToDisplay(event) {
@@ -52,6 +68,7 @@ function AddOpToDisplay(event) {
         opDisabled = true;
         comDisabled = false;
     }
+    HandleButtonShadow(event);
 }
 
 function AddCommaToDisplay(event) {
@@ -60,38 +77,32 @@ function AddCommaToDisplay(event) {
         opDisabled = true;
         comDisabled = true;
     }
+    HandleButtonShadow(event);
 }
 
-function AddParentheses() {
+function AddParentheses(event) {
     if (/[+x\/%-\.]/.test(display.value[display.value.length - 1])) return;
     display.value = display.value.replaceAll(/[()]/g, "");
     if (display.value == "") display.value = "0";
     AddToDisplay("(" + display.value + ")", true);
     // AddToDisplay(display.value.replace(/(?<!\()\d+(\.\d+)?(?!\))/g, "($&)"), true);
+    HandleButtonShadow(event);
 }
 
-function HandleKeyboardInput(event) {
-    if (/^\d+$/.test(event.key)) AddNumToDisplay(event);
-    if (/[+*xX\/%-]/.test(event.key)) AddOpToDisplay(event);
-    if (event.key == ".") AddCommaToDisplay(event);
-    if (event.key.toUpperCase() == "C") Clear();
-    if (event.key == "Backspace") Remove();
-    if (event.key == "Enter" || event.key == "=") Calculate();
-    if (event.key == "(" || event.key == ")") AddParentheses();
-}
-
-function Clear() {
+function Clear(event) {
     display.value = "0";
+    HandleButtonShadow(event);
 }
 
-function Remove() {
+function Remove(event) {
     if (/[+x\/%-\.]/.test(display.value[display.value.length - 1])) opDisabled = false;
     if (display.value[display.value.length - 1] == ".") comDisabled = false;
     if (display.value.length == 1) display.value = 0;
     else display.value = display.value.substring(0, display.value.length - 1);
+    HandleButtonShadow(event);
 }
 
-function Calculate() {
+function Calculate(event) {
     try {
         display.value = eval(display.value.replace("x", "*"));
         if (/\./.test(display.value)) comDisabled = true;
@@ -99,4 +110,15 @@ function Calculate() {
         alert("Operación no valida");
         console.log(err.message);
     }
+    HandleButtonShadow(event);
+}
+
+function HandleKeyboardInput(event) {
+    if (/^\d+$/.test(event.key)) AddNumToDisplay(event);
+    if (/[+*xX\/%-]/.test(event.key)) AddOpToDisplay(event);
+    if (event.key == ".") AddCommaToDisplay(event);
+    if (event.key.toUpperCase() == "C") Clear(event);
+    if (event.key == "Backspace") Remove(event);
+    if (event.key == "Enter" || event.key == "=") Calculate(event);
+    if (event.key == "(" || event.key == ")") AddParentheses(event);
 }
