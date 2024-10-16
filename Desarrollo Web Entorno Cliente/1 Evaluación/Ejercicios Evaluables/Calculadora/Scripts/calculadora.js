@@ -85,7 +85,6 @@ function AddParentheses(event) {
     display.value = display.value.replaceAll(/[()]/g, "");
     if (display.value == "") display.value = "0";
     AddToDisplay("(" + display.value + ")", true);
-    // AddToDisplay(display.value.replace(/(?<!\()\d+(\.\d+)?(?!\))/g, "($&)"), true);
     HandleButtonShadow(event);
 }
 
