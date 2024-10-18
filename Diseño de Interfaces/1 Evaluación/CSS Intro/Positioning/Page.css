@@ -1,0 +1,50 @@
+body {
+    width: 100%;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: darkblue;
+    padding: 15px;
+    height: 100px;
+    text-align: center;
+    color: white;
+}
+
+header ul {
+    list-style-type: none;
+}
+
+header li {
+    display: inline-block;
+    margin-inline: 10px;
+}
+
+.container h1, h2, h3 {
+    text-align: center;
+}
+
+.container p {
+    margin-left: 30px;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    background-color: whitesmoke;
+}
+
+.card {
+    display: inline-block;
+    background-color: cornflowerblue;
+    color: white;
+    margin-inline: 15px;
+    border-radius: 5%;
+    width: 150px;
+    height: 150px;
+}
+
+.card p {
+    margin-left: 20px;
+}
