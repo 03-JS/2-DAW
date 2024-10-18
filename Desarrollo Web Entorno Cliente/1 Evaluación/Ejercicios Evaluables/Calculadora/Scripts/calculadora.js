@@ -4,15 +4,28 @@ let buttons;
 
 function Main() {
     buttons = document.querySelectorAll(".boton");
-    for (let button of buttons) {
-        if (/^\d+$/.test(button.textContent.trim().toLowerCase())) button.addEventListener("mousedown", AddNumToDisplay);
-        if (/[+x\/%-\.]/.test(button.textContent.trim().toLowerCase())) button.addEventListener("mousedown", AddOpToDisplay);
-        button.addEventListener("mouseup", HandleButtonShadow);
-    }
     document.addEventListener("keydown", HandleKeyboardInput);
     document.addEventListener("keyup", HandleButtonShadow);
+    for (let button of buttons) {
+        button.addEventListener("mouseup", HandleButtonShadow);
+    }
     clear.addEventListener("mousedown", Clear);
     remove.addEventListener("mousedown", Remove);
+    one.addEventListener("mousedown", AddNumToDisplay);
+    two.addEventListener("mousedown", AddNumToDisplay);
+    three.addEventListener("mousedown", AddNumToDisplay);
+    four.addEventListener("mousedown", AddNumToDisplay);
+    five.addEventListener("mousedown", AddNumToDisplay);
+    six.addEventListener("mousedown", AddNumToDisplay);
+    seven.addEventListener("mousedown", AddNumToDisplay);
+    eight.addEventListener("mousedown", AddNumToDisplay);
+    nine.addEventListener("mousedown", AddNumToDisplay);
+    zero.addEventListener("mousedown", AddNumToDisplay);
+    add.addEventListener("mousedown", AddOpToDisplay);
+    substract.addEventListener("mousedown", AddOpToDisplay);
+    divide.addEventListener("mousedown", AddOpToDisplay);
+    multiply.addEventListener("mousedown", AddOpToDisplay);
+    percentage.addEventListener("mousedown", AddOpToDisplay);
     comma.addEventListener("mousedown", AddCommaToDisplay);
     parentheses.addEventListener("mousedown", AddParentheses);
     equals.addEventListener("mousedown", Calculate);
@@ -42,53 +55,54 @@ function AddToDisplay(value, replace) {
 }
 
 function AddNumToDisplay(event) {
+    HandleButtonShadow(event);
     if (display.value[display.value.length - 1] == ")") return;
     AddToDisplay(GetEventValue(event), display.value == "0");
     opDisabled = false;
-    HandleButtonShadow(event);
 }
 
 function AddOpToDisplay(event) {
+    HandleButtonShadow(event);
     let eventValue = GetEventValue(event);
-    if (!opDisabled) {
+    if (!opDisabled && /\d|\)$/.test(display.value[display.value.length - 1])) {
         AddToDisplay(eventValue == "*" ? "x" : eventValue, false);
         opDisabled = true;
         comDisabled = false;
     }
-    HandleButtonShadow(event);
 }
 
 function AddCommaToDisplay(event) {
+    HandleButtonShadow(event);
     if (!opDisabled && !comDisabled && /^\d+$/.test(display.value[display.value.length - 1])) {
         AddToDisplay(GetEventValue(event), false);
         opDisabled = true;
         comDisabled = true;
     }
-    HandleButtonShadow(event);
 }
 
 function AddParentheses(event) {
-    if (/[+x\/%-\.]/.test(display.value[display.value.length - 1])) return;
+    HandleButtonShadow(event);
     display.value = display.value.replaceAll(/[()]/g, "");
     if (display.value == "") display.value = "0";
+    if (/[+x\/%-\.]/.test(display.value[display.value.length - 1])) return;
     AddToDisplay("(" + display.value + ")", true);
-    HandleButtonShadow(event);
 }
 
 function Clear(event) {
-    display.value = "0";
     HandleButtonShadow(event);
+    display.value = "0";
 }
 
 function Remove(event) {
+    HandleButtonShadow(event);
     if (/[+x\/%-\.]/.test(display.value[display.value.length - 1])) opDisabled = false;
     if (display.value[display.value.length - 1] == ".") comDisabled = false;
     if (display.value.length == 1) display.value = 0;
     else display.value = display.value.substring(0, display.value.length - 1);
-    HandleButtonShadow(event);
 }
 
 function Calculate(event) {
+    HandleButtonShadow(event);
     try {
         display.value = eval(display.value.replaceAll("x", "*"));
         if (/\./.test(display.value)) comDisabled = true;
@@ -96,7 +110,6 @@ function Calculate(event) {
         alert("Operación no valida");
         console.log(err.message);
     }
-    HandleButtonShadow(event);
 }
 
 function HandleKeyboardInput(event) {
