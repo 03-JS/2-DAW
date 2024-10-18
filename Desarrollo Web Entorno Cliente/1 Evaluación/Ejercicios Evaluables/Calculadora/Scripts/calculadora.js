@@ -50,7 +50,7 @@ function AddNumToDisplay(event) {
 
 function AddOpToDisplay(event) {
     let eventValue = GetEventValue(event);
-    if (!opDisabled && /\d|\)$/.test(display.value[display.value.length - 1])) {
+    if (!opDisabled) {
         AddToDisplay(eventValue == "*" ? "x" : eventValue, false);
         opDisabled = true;
         comDisabled = false;
@@ -90,7 +90,7 @@ function Remove(event) {
 
 function Calculate(event) {
     try {
-        display.value = eval(display.value.replace("x", "*"));
+        display.value = eval(display.value.replaceAll("x", "*"));
         if (/\./.test(display.value)) comDisabled = true;
     } catch (err) {
         alert("Operación no valida");
