@@ -5,7 +5,7 @@ function Main() {
         if (event.target.classList.contains("casilla")) {
             event.target.classList.remove("oculto");
             points += eval(`(${event.target.innerText} + 1) * ${numMinas.value}`);
-            puntos.innerText = points + "<br>puntos";
+            puntos.innerText = points + `<br>puntos`;
         }
         if (event.target.classList.contains("mina")) {
             mensajeFinal.innerText = `Has perdido con ${points}`;
