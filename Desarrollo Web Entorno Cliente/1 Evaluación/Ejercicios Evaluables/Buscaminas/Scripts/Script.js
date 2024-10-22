@@ -2,13 +2,13 @@ let points = 0;
 
 function Main() {
     document.addEventListener("click", (event) => {
-        if (event.target.classList.contains("casilla")) {
+        if (event.target.classList.contains("casilla") && event.target.classList.contains("oculto")) {
             event.target.classList.remove("oculto");
             points += eval(`(${event.target.innerText} + 1) * ${numMinas.value}`);
-            puntos.innerText = points + `<br>puntos`;
+            puntos.innerHTML = points + `<br>puntos`;
         }
         if (event.target.classList.contains("mina")) {
-            mensajeFinal.innerText = `Has perdido con ${points}`;
+            mensajeFinal.innerText = `Has perdido con ${points} puntos`;
             protector.classList.remove("ocultar");
             mensajeFinal.classList.remove("ocultar");
         };
