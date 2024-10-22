@@ -1,0 +1,100 @@
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+div {
+  border-radius: 10px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+header {
+  background-color: #4CAF50;
+  width: 100%;
+  text-align: center;
+  color: white;
+  box-shadow: 2px 2px 2px lightgray;
+  justify-self: flex-start;
+}
+
+footer {
+  background-color: #333333;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  align-self: flex-end;
+  text-align: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.left {
+    justify-content: baseline;
+  }
+
+.middle {
+    justify-content: baseline;
+  }
+
+
+.right {
+  justify-content: flex-end;
+  flex: 0.3;
+}
+
+#one {
+  background-color: #F1C40F;
+  padding: 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  flex: 1;
+}
+
+#two {
+  background-color: #E67E22;
+  padding: 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  flex: 2;
+}
+
+#three {
+  background-color: #3498DB;
+  padding: 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  flex: 2;
+}
+
+#four {
+  background-color: #9B59B6;
+  padding: 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  flex: 1;
+}
+
+#five {
+  background-color: #2ECC71;
+  box-shadow: 2px 2px 2px lightgray;
+  justify-self: flex-end;
+  height: 6vh;
+  text-align: center;
+  align-items: center;
+}
