@@ -1,0 +1,5 @@
+FechaCompra	Usuario	Dirección	Frenos	Aceite	Ruedas
+===========	=======	=========	======	======	======
+23/10/2024	Javi	Una	1	2	3	
+23/10/2024	Miguel	Dos	4	1	4	
+23/10/2024	Pepe	Tres	2	8	1	
