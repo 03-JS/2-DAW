@@ -49,13 +49,12 @@ footer {
 }
 
 .left {
-    justify-content: baseline;
-  }
+  justify-content: baseline;
+}
 
 .middle {
-    justify-content: baseline;
-  }
-
+  justify-content: baseline;
+}
 
 .right {
   justify-content: flex-end;
