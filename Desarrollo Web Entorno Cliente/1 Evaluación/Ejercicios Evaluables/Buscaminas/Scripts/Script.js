@@ -1,7 +1,11 @@
 let points = 0;
 
 function Main() {
-    // Slots click event
+    /*
+    Maneja los eventos relacionados con las casillas. Pensé que sería más eficiente añadirlo a document por
+    la gran cantidad de casillas que hay. El primer if muestra la casilla y hace el cáclulo de puntos,
+    el segundo se encarga de revisar si has hecho click sobre una mina y termina el juego.
+    */ 
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("casilla") && event.target.classList.contains("oculto")) {
             event.target.classList.remove("oculto");
@@ -16,7 +20,8 @@ function Main() {
         };
     });
 
-    // Other click events
+    // Maneja el inicio del juego. Es bastante sencillo. Comprueba que todo es correcto, oculta los elementos
+    // no deseados y genera el tablero de casillas
     empezar.addEventListener("click", () => {
         if (numMinas.value < 5 || numMinas.value > 50) error.innerText = "Tiene que ser un valor entre 5 y 50";
         else {
@@ -27,11 +32,19 @@ function Main() {
         }
     });
     
+    // Más sencillo todavía. Recarga la página al hacer click sobre el botón de volver
+    // que aparece cuando termina el juego
     volver.addEventListener("click", () => {
         location.reload();
     });
 }
 
+/*
+    Crea las casillas del juego.
+    Para ello se crean 100 elementos div a los que después les añadimos las clases CSS oculto y casilla.
+    Después añadimos el número de minas según el número introducido con anterioridad.
+    Por último revisamos las minas cercanas a cada casilla y les añadimos el número y estilo correspondiente.
+*/
 function CreateSlots() {
     for (let i = 0; i < 100; i++) {
         let slot = document.createElement("div");
