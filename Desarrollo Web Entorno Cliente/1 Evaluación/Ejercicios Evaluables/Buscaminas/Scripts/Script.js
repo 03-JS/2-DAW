@@ -5,7 +5,7 @@ function Main() {
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("casilla") && event.target.classList.contains("oculto")) {
             event.target.classList.remove("oculto");
-            points += eval(`(${event.target.innerText} + 1) * ${numMinas.value}`);
+            if (!event.target.classList.contains("mina")) points += eval(`(${event.target.innerText} + 1) * ${numMinas.value}`);
             puntos.innerHTML = points + `<br>puntos`;
         }
         if (event.target.classList.contains("mina")) {
@@ -58,7 +58,7 @@ function CreateSlots() {
         if (index < 90) {
             if (slotNodes[index + 10].classList.contains("mina")) mineCount++;
             if (index % 10 != 9 && slotNodes[index + 11].classList.contains("mina")) mineCount++;
-            if (index % 10 != 9 && slotNodes[index + 9].classList.contains("mina")) mineCount++;
+            if (index % 10 != 0 && slotNodes[index + 9].classList.contains("mina")) mineCount++;
         }
         if (index >= 10) {
             if (slotNodes[index - 10].classList.contains("mina")) mineCount++;
