@@ -5,7 +5,7 @@ function Main() {
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("casilla") && event.target.classList.contains("oculto")) {
             event.target.classList.remove("oculto");
-            if (event.target.classList.contains("poco") || event.target.classList.contains("medio") || event.target.classList.contains("mucho")) points += eval(`(${event.target.innerText} + 1) * ${numMinas.value}`);
+            points += eval(`(${event.target.innerText} + 1) * ${numMinas.value}`);
             puntos.innerHTML = points + `<br>puntos`;
         }
         if (event.target.classList.contains("mina")) {
@@ -23,7 +23,7 @@ function Main() {
             numMinas.classList.add("ocultar");
             empezar.classList.add("ocultar");
             error.classList.add("ocultar");
-            CreateSlots();
+            CreateSlots();   
         }
     });
     
@@ -35,18 +35,39 @@ function Main() {
 function CreateSlots() {
     for (let i = 0; i < 100; i++) {
         let slot = document.createElement("div");
-        slot.textContent = `${i}`;
         slot.classList.add("casilla", "oculto");
         tablero.appendChild(slot);
     }
     let i = 0;
-    let rand = 0;
     let slotNodes = document.querySelectorAll(".casilla");
-    while (i != numMinas.value) {
-        do {
-            rand = Math.floor(Math.random() * slotNodes.length);
-            slotNodes.item(Array.prototype.indexOf.call(slotNodes, slotNodes[rand])).classList.add("mina");
-        } while (!slotNodes[rand].classList.contains("mina"));
-        i++;
+    let mineCount = numMinas.value;
+    let selectedIndices = new Set();
+    while (i < mineCount) {
+        let rand = Math.floor(Math.random() * slotNodes.length);
+        if (!selectedIndices.has(rand)) {
+            slotNodes[rand].classList.add("mina");
+            selectedIndices.add(rand);
+            i++;
+        }
+    }
+    for (let index = 0; index < slotNodes.length; index++) {
+        let mineCount = 0;
+        if (slotNodes[index].classList.contains("mina")) continue;
+        if (index % 10 != 0 && slotNodes[index - 1].classList.contains("mina")) mineCount++;
+        if (index % 10 != 9 && slotNodes[index + 1].classList.contains("mina")) mineCount++;
+        if (index < 90) {
+            if (slotNodes[index + 10].classList.contains("mina")) mineCount++;
+            if (index % 10 != 9 && slotNodes[index + 11].classList.contains("mina")) mineCount++;
+            if (index % 10 != 9 && slotNodes[index + 9].classList.contains("mina")) mineCount++;
+        }
+        if (index >= 10) {
+            if (slotNodes[index - 10].classList.contains("mina")) mineCount++;
+            if (index % 10 != 9 && slotNodes[index - 9].classList.contains("mina")) mineCount++;
+            if (index % 10 != 0 && slotNodes[index - 11].classList.contains("mina")) mineCount++;
+        }
+        if (mineCount == 1) slotNodes[index].classList.add("poco");
+        if (mineCount == 2) slotNodes[index].classList.add("medio");
+        if (mineCount >= 3) slotNodes[index].classList.add("mucho");
+        if (mineCount > 0) slotNodes[index].textContent = mineCount;
     }
 }
