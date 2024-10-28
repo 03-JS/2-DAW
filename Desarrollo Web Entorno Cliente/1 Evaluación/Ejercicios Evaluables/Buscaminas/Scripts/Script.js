@@ -2,9 +2,9 @@ let points = 0;
 
 function Main() {
     /*
-    Maneja los eventos relacionados con las casillas. Pensé que sería más eficiente añadirlo a document por
-    la gran cantidad de casillas que hay. El primer if muestra la casilla y hace el cáclulo de puntos,
-    el segundo se encarga de revisar si has hecho click sobre una mina y termina el juego.
+        Maneja los eventos relacionados con las casillas. Pensé que sería más eficiente añadirlo a document por
+        la gran cantidad de casillas que hay. El primer if muestra la casilla y hace el cáclulo de puntos,
+        el segundo se encarga de revisar si has hecho click sobre una mina y termina el juego.
     */ 
     document.addEventListener("click", (event) => {
         if (event.target.classList.contains("casilla") && event.target.classList.contains("oculto")) {
