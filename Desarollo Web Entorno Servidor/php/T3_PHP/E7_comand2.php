@@ -6,4 +6,13 @@
 
 $dir = opendir("./doc");
 
+$input = readdir($dir);
+while ($input != false) {
+    $str = explode(".", basename($input))[1];
+    if ($str == "pdf" || $str == "ps") {
+        echo basename($input) . "<br>";
+    }
+    $input = readdir($dir);
+}
+
 ?>
