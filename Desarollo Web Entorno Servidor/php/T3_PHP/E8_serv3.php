@@ -2,9 +2,6 @@
 
 <?php
 
-echo $_FILES["userfile"]["size"];
-echo "<br>";
-
 if (!is_uploaded_file($_FILES["userfile"]["tmp_name"])) {
     echo "Error en la carga del fichero";
     echo "<br>";

@@ -1,9 +1,6 @@
-<p><b>Controla que el tamaño del archivo no supera los 100kb</b></p>
+<p><b>Controla que el tipo de fichero a subir: PDF o POSTSCRIPT</b></p>
 
 <?php
-
-echo $_FILES["userfile"]["size"];
-echo "<br>";
 
 if (!is_uploaded_file($_FILES["userfile"]["tmp_name"])) {
     echo "Error en la carga del fichero";
@@ -12,7 +9,7 @@ if (!is_uploaded_file($_FILES["userfile"]["tmp_name"])) {
     return;
 }
 
-if ($_FILES["userfile"]["type"] != "pdf" || $_FILES["userfile"]["type"] != "ps") {
+if (explode("/", $_FILES["userfile"]["type"])[1] != "pdf" && explode("/", $_FILES["userfile"]["type"])[1] != "postscript") {
     echo "El archivo ha de ser de tipo PDF o PS";
     return;
 }
