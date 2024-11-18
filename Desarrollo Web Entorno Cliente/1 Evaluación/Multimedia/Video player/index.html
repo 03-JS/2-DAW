@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./Scripts/VideoPlayer.js"></script>
+    <link rel="stylesheet" href="./Style/Styles.css">
+    <title>Media player</title>
+</head>
+
+<body onload="Main()">
+    <div id="player">
+        <video src="./Media/Videos/P-2 run.mp4" type="video/mp4" poster="./Media/Pictures/Accidental P rank.png"
+            id="video">
+        </video>
+        <div id="ad" class="hidden">
+            <button id="closeAdButton">X</button>
+            <p>Podrás quitar la publicidad después de</p>
+            <p id="countdown">10 segundos</p>
+        </div>
+        <progress id="progress" value="0"></progress>
+        <button id="mute"><img src="./Media/Pictures/volume.png" alt="" id="muteButtonIcon"></button>
+        <button id="backwards"><img src="./Media/Pictures/back.png" alt=""></button>
+        <button id="play"><img src="./Media/Pictures/play.png" alt="" id="playButtonIcon"></button>
+        <button id="forwards"><img src="./Media/Pictures/forward.png" alt=""></button>
+        <button id="restart"><img src="./Media/Pictures/restart.png" alt=""></button>
+        <button id="lower"><img src="./Media/Pictures/volume-down.png" alt=""></button>
+        <button id="higher"><img src="./Media/Pictures/volume-up.png" alt=""></button>
+    </div>
+    <div id="sidebar">
+        <video src="./Media/Videos/ACC ASMR.mp4" type="video/mp4"></video>
+        <video src="./Media/Videos/Desktop 2023.03.30 - 21.41.36.01.mp4" type="video/mp4"
+            poster="./Media/Pictures/ranDOOM dev video thumbnail.png"></video>
+        <video src="./Media/Videos/Volatile Poison.mp4" type="video/mp4"></video>
+        <video src="./Media/Videos/P-2 run.mp4" type="video/mp4"
+            poster="./Media/Pictures/Accidental P rank.png"></video>
+    </div>
+</body>
+
+</html>
