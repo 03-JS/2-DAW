@@ -8,6 +8,7 @@ let progressInterval;
 document.addEventListener("DOMContentLoaded", () => {
     video.addEventListener("loadedmetadata", () => {
         progress.max = video.duration;
+        timestamp.innerText = `${FormatSeconds(video.currentTime)} / ${FormatSeconds(video.duration)}`;
         console.log(video.duration);
     });
 });
@@ -21,6 +22,7 @@ function Main() {
     higher.addEventListener("click", ChangeVolume);
     forwards.addEventListener("click", Skip);
     backwards.addEventListener("click", Skip);
+    fullscreen.addEventListener("click", () => video.requestFullscreen());
     video.addEventListener("ended", () => {
         playButtonIcon.src = "./Media/Pictures/play.png";
         progress.value = video.duration;
@@ -74,9 +76,11 @@ function PlayVideo() {
     //     PlayAd();
     //     return;
     // }
-    // 
     video.play();
-    progressInterval = setInterval(() => progress.value = video.currentTime);
+    progressInterval = setInterval(() => {
+        progress.value = video.currentTime
+        timestamp.innerText = `${FormatSeconds(video.currentTime)} / ${FormatSeconds(video.duration)}`;
+    });
     playButtonIcon.src = "./Media/Pictures/pause.png";
 }
 
@@ -100,6 +104,8 @@ function ChangeVolume(event) {
 function Skip(event) {
     if (controlsFrozen) return;
     event.currentTarget.id == "backwards" ? video.currentTime -= 10 : video.currentTime += 10;
+    progress.value = video.currentTime;
+    timestamp.innerText = `${FormatSeconds(video.currentTime)} / ${FormatSeconds(video.duration)}`;
 }
 
 function RestartVideo() {
@@ -108,4 +114,11 @@ function RestartVideo() {
     // Comment these lines to get rid of the popup
     // video.pause();
     // PlayAd();
+}
+
+function FormatSeconds(seconds) {
+    let minutes = Math.floor(seconds / 60);
+    let remainingSeconds = Math.floor(seconds % 60);
+
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
