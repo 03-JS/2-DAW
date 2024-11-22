@@ -1,0 +1,31 @@
+img {
+    position: absolute;
+    left: 10%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: black;
+    width: 11vw;
+    height: 44vh;
+    border-radius: 50px;
+
+    p {
+        margin: 0;
+        margin-top: 20px;
+        margin-bottom: 5vh;
+        font-size: x-large;
+        color: #f9f946;
+    }
+
+    input {
+        margin-bottom: 10px;
+    }
+
+    button {
+        margin-top: 25px;
+    }
+}

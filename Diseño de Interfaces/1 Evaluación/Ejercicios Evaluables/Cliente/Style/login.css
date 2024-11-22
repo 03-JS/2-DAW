@@ -1,0 +1,40 @@
+img {
+    position: absolute;
+    left: 10%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: black;
+    width: 11vw;
+    height: 44vh;
+    border-radius: 50px;
+
+    p {
+        margin: 0;
+        margin-top: 12px;
+        margin-bottom: 5vh;
+        font-size: xx-large;
+        color: #f9f946;
+    }
+
+    input {
+        margin-bottom: 20px;
+    }
+
+    button {
+        margin-top: 15px;
+    }
+}
+
+#create {
+    color: #7b7b7b;
+    margin-top: 10px;
+}
+
+#forgot {
+    margin-top: 30px;
+}

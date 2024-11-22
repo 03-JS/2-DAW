@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    font-size: large;
+    width: 6vw;
+    height: 5vh;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.blue-button {
+    color: white;
+    background-color: #1ba5fa;
+}
+
+.yellow-button {
+    color: white;
+    background-color: #f9f946;
+}
+
+.white-button {
+    background-color: white;
+}
