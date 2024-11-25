@@ -111,6 +111,7 @@ function Skip(event) {
 function RestartVideo() {
     if (controlsFrozen) return;
     video.currentTime = 0;
+    progress.value = video.currentTime;
     // Comment these lines to get rid of the popup
     // video.pause();
     // PlayAd();
