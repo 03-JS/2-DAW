@@ -1,10 +1,10 @@
 body {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     min-height: 100vh;
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
 }
 
 button {
@@ -27,9 +27,57 @@ input {
 }
 
 header {
-    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
     width: 100%;
     height: 10vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 7vh;
+}
+
+.subheader {
+    display: flex;
+    justify-content: flex-start;
+    height: 10vh;
+    width: fit-content;
+    align-items: center;
+
+    button {
+        scale: 0.75;
+    }
+}
+
+.light {
+    background-color: rgb(186, 186, 186);
+}
+
+.dark {
+    background-color: rgb(30, 30, 30);
+}
+
+.body-dark {
+    background-color: rgb(19, 19, 19);
+}
+
+.blue {
+    background-color: #1ba5fa;
 }
 
 .blue-button {
@@ -42,5 +90,59 @@ header {
 }
 
 .white-button {
+    color: #1ba5fa;
     background-color: white;
+}
+
+.black-button {
+    color: white;
+    background-color: black;
+}
+
+.light-border {
+    border: 2px solid white;
+}
+
+.dark-border {
+    border: 2px solid black;
+}
+
+.logo {
+    background-image: url("../Media/Pictures/logo.png");
+    width: 63px;
+    height: 56px;
+    margin-left: 10%;
+}
+
+.light-logo {
+    background-image: url("../Media/Pictures/logo_light.png");
+    width: 63px;
+    height: 56px;
+    margin-left: 10%;
+}
+
+.light-mode {
+    background-image: url("../Media/Pictures/darkmode.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.dark-mode {
+    background-image: url("../Media/Pictures/lightmode.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#searchBar {
+    width: 20%;
+}
+
+#themeToggle {
+    position: sticky;
+    bottom: 2%;
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    z-index: 1;
+    margin-left: 96%;
 }
