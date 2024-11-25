@@ -12,6 +12,7 @@ img {
     width: 11vw;
     height: 44vh;
     border-radius: 50px;
+    transform: scale(1.5);
 
     p {
         margin: 0;
