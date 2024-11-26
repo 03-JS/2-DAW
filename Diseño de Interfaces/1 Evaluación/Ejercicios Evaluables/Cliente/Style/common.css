@@ -29,27 +29,31 @@ input {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    position: sticky;
+    justify-content: center;
+    position: fixed;
+    top: 0;
     width: 100%;
     height: 10vh;
+    box-shadow: 0px 1px 15px lightgray;
 }
 
 main {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     flex: 1;
 }
 
 footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 7vh;
+    box-shadow: 0px 1px 15px lightgray;
+    flex: 0 0 auto;
 }
 
 .subheader {
@@ -60,24 +64,10 @@ footer {
     align-items: center;
 
     button {
-        scale: 0.75;
+        position: absolute;
+        left: 7%;
+        font-size: medium;
     }
-}
-
-.light {
-    background-color: rgb(186, 186, 186);
-}
-
-.dark {
-    background-color: rgb(30, 30, 30);
-}
-
-.body-dark {
-    background-color: rgb(19, 19, 19);
-}
-
-.blue {
-    background-color: #1ba5fa;
 }
 
 .blue-button {
@@ -99,50 +89,68 @@ footer {
     background-color: black;
 }
 
-.light-border {
-    border: 2px solid white;
+/* .light-border {
+    border: 1px solid white;
 }
 
 .dark-border {
-    border: 2px solid black;
-}
+    border: 1px solid black;
+} */
 
 .logo {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 76px;
+    height: 69px;
+    position: absolute;
+    left: 1%;
+}
+
+.default-logo {
     background-image: url("../Media/Pictures/logo.png");
-    width: 63px;
-    height: 56px;
-    margin-left: 10%;
 }
 
 .light-logo {
     background-image: url("../Media/Pictures/logo_light.png");
-    width: 63px;
-    height: 56px;
-    margin-left: 10%;
 }
 
-.light-mode {
-    background-image: url("../Media/Pictures/darkmode.png");
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.dark-mode {
+/* .lightmode-icon {
     background-image: url("../Media/Pictures/lightmode.png");
+}
+
+.darkmode-icon {
+    background-image: url("../Media/Pictures/darkmode.png");
+} */
+
+#profileIcon {
+    background-image: url("../Media/Pictures/pfp.png");
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 95%;
+    position: absolute;
+    right: 2%;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #1ba5fa;
+    border-radius: 100%;
 }
+
+/* #themeButton {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: sticky;
+    bottom: 1%;
+    border-radius: 100%;
+    height: 45px;
+    width: 45px;
+    z-index: 1;
+    margin-left: 96.5%;
+} */
 
 #searchBar {
     width: 20%;
-}
-
-#themeToggle {
-    position: sticky;
-    bottom: 2%;
-    border-radius: 100%;
-    height: 40px;
-    width: 40px;
-    z-index: 1;
-    margin-left: 96%;
+    border: 2px solid #1ba5fa;
+    border-radius: 10px;
 }

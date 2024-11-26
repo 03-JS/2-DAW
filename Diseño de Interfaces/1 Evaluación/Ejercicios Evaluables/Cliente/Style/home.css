@@ -1,4 +1,16 @@
 body {
     flex-direction: column;
-    justify-content: space-between;
+}
+
+.item-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 20vw;
+    row-gap: 10vh;
+}
+
+.item {
+    background-color: rgb(0, 0, 0);
+    width: 20vw;
+    height: 30vh;
 }
