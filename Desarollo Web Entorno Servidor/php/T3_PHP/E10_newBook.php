@@ -17,8 +17,6 @@ if (!$link) {
         return;
     }
 
-    echo $_POST["isbn"] . "<br>";
-
     $prepared_insert_query = "INSERT INTO books
     (isbn, author, title, price)
     VALUES (?,?,?,?)";
