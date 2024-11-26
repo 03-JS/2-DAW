@@ -24,7 +24,7 @@ if (!$link) {
     VALUES (?,?,?,?)";
 
     $sentencia = mysqli_prepare($link, $prepared_insert_query);
-    mysqli_stmt_bind_param($sentencia, "issd", $_POST["isbn"], $_POST["author"], $_POST["title"], $_POST["price"]);
+    mysqli_stmt_bind_param($sentencia, "sssd", $_POST["isbn"], $_POST["author"], $_POST["title"], $_POST["price"]);
 
     $res = mysqli_stmt_execute($sentencia);
 
