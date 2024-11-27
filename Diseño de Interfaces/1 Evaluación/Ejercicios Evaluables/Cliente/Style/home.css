@@ -5,12 +5,12 @@ body {
 .item-container {
     display: grid;
     grid-template-columns: auto auto;
-    column-gap: 20vw;
+    column-gap: 10vw;
     row-gap: 10vh;
 }
 
 .item {
     background-color: rgb(0, 0, 0);
-    width: 20vw;
+    width: 40vw;
     height: 30vh;
 }

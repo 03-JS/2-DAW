@@ -30,11 +30,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     height: 10vh;
     box-shadow: 0px 1px 15px lightgray;
+    background-color: white;
 }
 
 main {
@@ -48,12 +49,10 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     height: 7vh;
     box-shadow: 0px 1px 15px lightgray;
-    flex: 0 0 auto;
+    background-color: white;
 }
 
 .subheader {
@@ -73,15 +72,33 @@ footer {
 .blue-button {
     color: white;
     background-color: #1ba5fa;
+    transition: all 0.2s ease-in-out;
+}
+
+.blue-button:hover {
+    color: #1ba5fa;
+    background-color: white;
 }
 
 .yellow-button {
     background-color: #f9f946;
+    transition: all 0.2s ease-in-out;
+}
+
+.yellow-button:hover {
+    color: #f9f946;
+    background-color: white;
 }
 
 .white-button {
     color: #1ba5fa;
     background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.white-button:hover {
+    color: white;
+    background-color: #1ba5fa;
 }
 
 .black-button {
