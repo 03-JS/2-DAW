@@ -36,6 +36,7 @@ header {
     height: 10vh;
     box-shadow: 0px 1px 15px lightgray;
     background-color: white;
+    z-index: 1;
 }
 
 main {
@@ -53,6 +54,7 @@ footer {
     height: 7vh;
     box-shadow: 0px 1px 15px lightgray;
     background-color: white;
+    z-index: 1;
 }
 
 .subheader {
@@ -170,4 +172,8 @@ footer {
     width: 20%;
     border: 2px solid #1ba5fa;
     border-radius: 10px;
+}
+
+#searchBar:hover {
+    
 }
