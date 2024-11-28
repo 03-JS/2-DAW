@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     min-height: 100vh;
     margin: 0;
@@ -57,6 +58,19 @@ footer {
     z-index: 1;
 }
 
+a {
+    transition: all 0.15s ease-in-out;
+}
+
+a:hover {
+    color: #f9f946;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
 .subheader {
     display: flex;
     justify-content: flex-start;
@@ -74,47 +88,46 @@ footer {
 .blue-button {
     color: white;
     background-color: #1ba5fa;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.15s ease-in-out;
 }
 
 .blue-button:hover {
     color: #1ba5fa;
     background-color: white;
+    border: 2px solid #1ba5fa;
 }
 
 .yellow-button {
+    color: black;
     background-color: #f9f946;
-    transition: all 0.2s ease-in-out;
+    transform-origin: center;
+    transition: all 0.15s ease-in-out;
 }
 
 .yellow-button:hover {
     color: #f9f946;
-    background-color: white;
+    background-color: black;
+    transform: scale(1.15);
 }
 
 .white-button {
     color: #1ba5fa;
     background-color: white;
-    transition: all 0.2s ease-in-out;
+    border: 2px solid #1ba5fa;
+    transition: all 0.15s ease-in-out;
 }
 
 .white-button:hover {
-    color: white;
-    background-color: #1ba5fa;
+    /* color: white;
+    background-color: #1ba5fa; */
+    color: #f9f946;
+    border-color: #f9f946;
 }
 
 .black-button {
     color: white;
     background-color: black;
 }
-
-/* .light-border {
-    border: 1px solid white;
-}
-
-.dark-border {
-    border: 1px solid black;
-} */
 
 .logo {
     background-repeat: no-repeat;
@@ -134,15 +147,8 @@ footer {
     background-image: url("../Media/Pictures/logo_light.png");
 }
 
-/* .lightmode-icon {
-    background-image: url("../Media/Pictures/lightmode.png");
-}
-
-.darkmode-icon {
-    background-image: url("../Media/Pictures/darkmode.png");
-} */
-
 #profileIcon {
+    background-color: white;
     background-image: url("../Media/Pictures/pfp.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -153,27 +159,21 @@ footer {
     height: 60px;
     border: 1px solid #1ba5fa;
     border-radius: 100%;
+    transition: border 0.15s ease-in-out;
 }
 
-/* #themeButton {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    position: sticky;
-    bottom: 1%;
-    border-radius: 100%;
-    height: 45px;
-    width: 45px;
-    z-index: 1;
-    margin-left: 96.5%;
-} */
+#profileIcon:hover {
+    border-color: #f9f946;
+}
 
 #searchBar {
     width: 20%;
     border: 2px solid #1ba5fa;
     border-radius: 10px;
+    transition: all 0.15s ease-in-out;
 }
 
 #searchBar:hover {
-    
+    color: #f9f946;
+    border-color: #f9f946;
 }
