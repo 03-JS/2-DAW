@@ -128,7 +128,7 @@ h1, h2, h3 {
     background-color: black;
 }
 
-.logo {
+#logo {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
