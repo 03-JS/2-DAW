@@ -4,21 +4,68 @@ body {
 
 main {
     flex-direction: column;
-    justify-content: center;
 
     #profileIcon {
         position: absolute;
-        left: 25%;
-        width: 300px;
-        height: 300px;
+        left: 35%;
+        width: 150px;
+        height: 150px;
     }
 }
 
-.card {
+.row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 15%;
-    height: auto;
+    width: 45%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid lightgray;
+    box-shadow: 0px 0px 3px #1ba5fa;
+    border-radius: 10px;
+    width: 33vw;
+    height: 50vh;
+    padding-top: 2%;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0px 0px 3px #f9f946;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.line {
+    background-color: black;
+    width: 100%;
+    height: 2px;
+    margin-top: 10px;
+}
+
+#one {
+    margin-bottom: 11vh;
+    width: 33%;
+}
+
+#two {
+    flex-direction: column;
+    
+    b {
+        margin-top: 10px;
+    }
+}
+
+#gearIcon {
+    position: absolute;
+    right: 43%;
 }
