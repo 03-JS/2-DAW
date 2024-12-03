@@ -10,8 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
         seleccionado.appendChild(event.target);
         ProcessGameRules();
     });
+    seleccionado.addEventListener("drop", DropHandler);
+    seleccionado.addEventListener("dragover", (event) => event.preventDefault());
     continuar.addEventListener("click", Continue);
 })
+
+function DropHandler(event) {
+    event.preventDefault();
+    event.target.appendChild(document.querySelector(`#${event.dataTransfer.getData("text")}`));
+    ProcessGameRules();
+}
 
 function LoadImgs() {
     for (let index = 0; index < items.length - 1; index++) {
@@ -19,6 +27,8 @@ function LoadImgs() {
             let element = document.createElement("img");
             element.src = `./img/${gameObjects[index]}.png`;
             element.id = gameObjects[index];
+            element.addEventListener("dragstart", (event) => event.dataTransfer.setData("text", event.target.id));
+            element.draggable = true;
             items[index].appendChild(element);
         }
     }
