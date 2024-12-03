@@ -1,14 +1,14 @@
-let items;
 const gameObjects = ["piedra", "papel", "tijera", "lagarto", "spock"];
+let items;
 let points = 0;
 let enemyPoints = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     items = document.querySelectorAll(".item");
-    LoadImgs();
+    CreateImages();
     selector.addEventListener("dblclick", (event) => {
         seleccionado.appendChild(event.target);
-        ProcessGameRules();
+        PlayGame();
     });
     seleccionado.addEventListener("drop", DropHandler);
     seleccionado.addEventListener("dragover", (event) => event.preventDefault());
@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
 function DropHandler(event) {
     event.preventDefault();
     event.target.appendChild(document.querySelector(`#${event.dataTransfer.getData("text")}`));
-    ProcessGameRules();
+    PlayGame();
 }
 
-function LoadImgs() {
-    for (let index = 0; index < items.length - 1; index++) {
-        if (items[index].childNodes.length <= 1) {
+function CreateImages() {
+    for (let index = 0; index < items.length - 1; index++) { // -1 de la longitud para no pillar el item que contiene lo que hemos seleccionado
+        if (items[index].childNodes.length <= 1) { // para solo rellenar los items que no tienen imágenes
             let element = document.createElement("img");
             element.src = `./img/${gameObjects[index]}.png`;
             element.id = gameObjects[index];
@@ -44,18 +44,14 @@ function AddPoints(points, className) {
 
 function DisplayMessage(str) {
     deliveracion.classList.add("invisible");
-    deliveracion.classList.remove("visible");
     mensaje.classList.remove("invisible");
-    mensaje.classList.add("visible");
     mensaje.childNodes[3].innerText = str;
 }
 
-function ProcessGameRules() {
+function PlayGame() {
     setTimeout(() => {
         proteccion.classList.remove("invisible");
-        proteccion.classList.add("visible");
         deliveracion.classList.remove("invisible");
-        deliveracion.classList.add("visible");
         let enemyChoice = gameObjects[Math.floor(Math.random() * gameObjects.length)];
         let str = "";
         setTimeout(() => {
@@ -64,7 +60,7 @@ function ProcessGameRules() {
                     if (enemyChoice == "tijera" || enemyChoice == "lagarto") {
                         points += 1;
                         AddPoints(1, "mio");
-                        if (enemyChoice == "tijera") enemyChoice += "s";
+                        if (enemyChoice == "tijera") enemyChoice += "s"; // para que todos los mensajes de tijeras sean en plural. Sin la s este sería el único en singular
                         str = "Piedra aplasta " + enemyChoice;
                     }
                     if (enemyChoice == "piedra") {
@@ -181,11 +177,9 @@ function Continue() {
         points = 0;
         enemyPoints = 0;
     }
-    proteccion.classList.remove("visible");
     proteccion.classList.add("invisible");
-    mensaje.classList.remove("visible");
     mensaje.classList.add("invisible");
     enemigo.childNodes[1].src = "./img/interrogante.png";
-    LoadImgs();
+    CreateImages(); // lo vuelvo a llamar para que vuelva a poner las imágenes en el sitio que les corresponde
     seleccionado.removeChild(seleccionado.lastChild);
 }
