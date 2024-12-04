@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     seleccionado.addEventListener("drop", DropHandler);
     seleccionado.addEventListener("dragover", (event) => event.preventDefault());
     continuar.addEventListener("click", Continue);
-})
+});
 
 function DropHandler(event) {
     event.preventDefault();
