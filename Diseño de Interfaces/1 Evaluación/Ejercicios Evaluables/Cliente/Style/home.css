@@ -5,6 +5,7 @@ body {
 .item-container {
     display: grid;
     grid-template-columns: auto auto;
+    justify-items: center;
     column-gap: 10vw;
     row-gap: 7vh;
     margin-top: 3%;
@@ -16,7 +17,7 @@ body {
     align-items: center;
     justify-content: space-around;
     grid-template-columns: auto auto;
-    margin-bottom: 5%;
+    /* margin-bottom: 10%; */
     border: 3px solid #1ba5fa;
     border-radius: 20px;
     background-image: linear-gradient(to right, white, #1ba5fa);
@@ -51,4 +52,74 @@ body {
 .item-img {
     max-width: 250px;
     max-height: 100%;
+}
+
+.ford {
+    background-image: linear-gradient(to right, white, #2c5f90);
+    border-color: #2c5f90;
+    color: white;
+}
+
+.dodge {
+    background-image: linear-gradient(to right, white, #F12A25);
+    border-color: #F12A25;
+    color: white;
+}
+
+.jeep {
+    background-image: linear-gradient(to right, white, #424D07);
+    border-color: #424D07;
+    color: white;
+}
+
+.porsche {
+    background-image: linear-gradient(to right, white, #F2CA42);
+    border-color: #F2CA42;
+}
+
+.ferrari {
+    background-image: linear-gradient(to right, white, #E50015);
+    border-color: #E50015;
+    color: white;
+}
+
+.ferrari:hover {
+    background-image: linear-gradient(to right, white, #FEEB00);
+    border-color: #FEEB00;
+    color: black;
+}
+
+.mercedes {
+    background-image: linear-gradient(to right, white, lightgray);
+    border-color: lightgray;
+}
+
+.mercedes:hover {
+    background-image: linear-gradient(to right, white, #34E4CB);
+    border-color: #34E4CB;
+    color: gray;
+}
+
+#fordLine {
+    background-image: radial-gradient(circle, #000 0%, #2c5f90 50%);
+}
+
+#dodgeLine {
+    background-image: radial-gradient(circle, #000 0%, #F12A25 50%);
+}
+
+#jeepLine {
+    background-image: radial-gradient(circle, #000, #424D07 50%);
+}
+
+#porscheLine {
+    background-image: radial-gradient(circle, #000 0%, #F2CA42 50%);
+}
+
+#ferrariLine {
+    background-image: linear-gradient(90deg, #03993A 0%, white 50%, #E50015 100%);
+}
+
+#mercedesLine {
+    background-image: radial-gradient(circle, #000 0%, #34E4CB 50%, lightgray 100%);
 }
