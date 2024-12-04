@@ -98,7 +98,7 @@ function PlayGame() {
                     }
                     break;
                 case "tijera":
-                    if (enemyChoice == "papel" || enemyChoice == "laagrto") {
+                    if (enemyChoice == "papel" || enemyChoice == "lagarto") {
                         points += 3;
                         AddPoints(3, "mio");
                         enemyChoice == "papel" ? str = "Tijeras cortan papel" : str = "Tijeras decapitan lagarto";
