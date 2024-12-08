@@ -135,6 +135,36 @@ h1, h2, h3 {
     grid-column: 1 / 3;
 }
 
+.display-column {
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid lightgray;
+    box-shadow: 0px 0px 3px #1ba5fa;
+    border-radius: 10px;
+    width: 33vw;
+    height: 50vh;
+    padding-top: 2%;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0px 0px 3px #f9f946;
+}
+
 .default-logo {
     background-image: url("../Media/Pictures/logo.png");
 }

@@ -1,0 +1,33 @@
+.row {
+    width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 1vw;
+    justify-items: center;
+    width: 70vw;
+    height: 70vh;
+    font-size: large;
+    padding: 0;
+
+    img {
+        max-width: 800px;
+        max-height: 100%;
+    }
+
+    p {
+        margin-right: 8%;
+    }
+}
+
+.title {
+    grid-column: 1 / 3;
+    justify-self: flex-start;
+    margin-left: 10%;
+}
+
+.blue-button {
+    grid-column: 1 / 3;
+}

@@ -1,7 +1,3 @@
-body {
-    flex-direction: column;
-}
-
 .item-container {
     display: grid;
     grid-template-columns: auto auto;
