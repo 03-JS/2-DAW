@@ -4,23 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chat</title>
+    <script src="./Scripts/Index.js"></script>
     <link rel="stylesheet" href="./Styles/Common.css">
     <link rel="stylesheet" href="./Styles/Index.css">
 </head>
 <body>
     <div id="sideContent">
-        <h2>Opciones</h2>
-        <div id="item"></div>
+        <h2>Modelos IA</h2>
     </div>
     <div id="content">
         <header>
-            <h2>Chatea con una IA</h2>
+            <h2 id="chatTitle">Chat</h2>
             <img src="./Media/Pictures/chibi_opera.png" id="profileIcon">
         </header>
         <main>
             <div id="chat">
                 <div id="chatArea">
-
+                    <div class="user-message">Hi GPT-2!</div>
+                    <div class="ai-message"><b>GPT-2:</b><br><p>Hey! How can I assist you today?</p></div>
+                    <div class="user-message">Give me a brief description about yourself</div>
+                    <div class="ai-message"><b>GPT-2:</b><br><p>
+                        GPT-2 (Generative Pre-trained Transformer 2) is a large language model developed by OpenAI. It is designed to generate coherent and contextually relevant text based on input prompts. GPT-2 uses the Transformer architecture, which allows it to process and generate sequential text efficiently.
+                        Key characteristics of GPT-2 include:
+                        Unsupervised pretraining: Trained on a massive dataset of internet text without task-specific supervision.
+                        Large scale: It features up to 1.5 billion parameters (in its largest version).
+                        Text generation: Capable of producing human-like text, completing prompts, translating, summarizing, and answering questions.
+                        General-purpose: It works across a variety of NLP tasks without fine-tuning.
+                        OpenAI initially limited its release due to concerns about its potential misuse (e.g., generating fake news), but later made it publicly available in phases. GPT-2 marked a significant step toward large-scale language models like GPT-3 and GPT-4.
+                    </p></div>
+                    <div class="user-message">Hi Athene!</div>
+                    <div class="ai-message"><b>Athene v2:</b><br><p>Hello! How may I assist you today?</p></div>
                 </div>
                 <form action="./Scripts/Form.php" method="post">
                     <input type="text" name="prompt" id="prompt" placeholder="Envía un mensaje">
