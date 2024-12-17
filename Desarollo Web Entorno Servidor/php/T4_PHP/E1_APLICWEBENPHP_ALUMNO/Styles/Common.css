@@ -29,6 +29,9 @@ header {
 main {
     display: flex;
     flex-direction: column;
+    max-height: 83vh;
+    justify-content: center;
+    align-items: center;
     flex: 1;
 }
 
@@ -108,11 +111,10 @@ input {
     justify-content: center;
     width: 100%;
     height: 100%;
-    border: 1px solid rgba(65, 65, 65, 1);
-    border-radius: 30px;
-    max-width: 75vw;
-    padding-left: 2%;
-    padding-right: 2%;
+    /* border: 1px solid rgba(65, 65, 65, 1); */
+    /* border-radius: 30px; */
+    /* padding-left: 2%; */
+    /* padding-right: 2%; */
     row-gap: 2vh;
 }
 
@@ -121,10 +123,15 @@ input {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-end;
-    width: 100%;
+    width: 65vw;
     height: 85%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 2%;
     row-gap: 5vh;
-    /* background-color: rgba(20, 20, 20, 1); */
+    overflow: auto;
+    background-color: rgba(20, 20, 20, 1);
+    border-radius: 30px 0px 0px 30px;
     /* border: 1px solid rgba(65, 65, 65, 1); */
 }
 
@@ -136,7 +143,7 @@ input {
     width: 45vw;
     height: 5vh;
     padding-left: 2%;
-    padding-right: 2%;
+    /* padding-right: 2%; */
 }
 
 .user-message {
@@ -146,11 +153,12 @@ input {
     padding: 1%;
     padding-left: 1.5%;
     padding-right: 1.5%;
+    /* margin-right: 2%; */
     background-color: rgba(65, 65, 65, 1);
 }
 
 .ai-message {
-    width: 100%;
+    width: 97%;
     height: fit-content;
     padding: 1%;
 }
