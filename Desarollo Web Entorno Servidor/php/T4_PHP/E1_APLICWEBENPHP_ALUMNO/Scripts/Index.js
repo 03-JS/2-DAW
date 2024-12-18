@@ -1,26 +1,39 @@
 let currentModel;
 const models = {
-    "GPT-2": "openai-community/gpt2",
+    "StarChat2": "HuggingFaceH4/starchat2-15b-v0.1",
+    "Qwen2.5-Coder": "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "Phi 3.5 mini": "microsoft/Phi-3.5-mini-instruct",
+    "Zephyr": "HuggingFaceH4/zephyr-7b-beta",
     "Hermes 3": "NousResearch/Hermes-3-Llama-3.2-3B",
-    "Athene v2": "Nexusflow/Athene-V2-Chat",
-    "Qwen 2.5": "Qwen/Qwen2.5-Coder-32B-Instruct",
-    "QwQ": "Qwen/QwQ-32B-Preview"
-};
+    "Mistral-Nemo": "mistralai/Mistral-Nemo-Instruct-2407"
+}; // Store in a database. Access it with php
 
 document.addEventListener("DOMContentLoaded", () => {
-    currentModel = models["GPT-2"];
+    currentModel = models["StarChat2"];
     for (const [key, value] of Object.entries(models)) {
-        let div = document.createElement("div");
-        div.classList.add("item");
-        if (value === currentModel) div.classList.add("focused");
-        div.innerHTML = `<img src="./Media/Pictures/ai.png">${key}`;
-        div.addEventListener("click", (event) => {
+        let item = document.createElement("div");
+        item.classList.add("item");
+        if (value === currentModel) item.classList.add("focused");
+        item.innerHTML = `<img src="./Media/Pictures/ai.png">${key}`;
+        item.addEventListener("click", (event) => {
             for (const child of sideContent.children) {
                 child.classList.remove("focused");
+            }
+            if (currentModel != models[event.target.textContent]) {
+                let info = document.createElement("div");
+                info.classList.add("info-message");
+                let leftLine = document.createElement("div");
+                leftLine.classList.add("line");
+                let rightLine = document.createElement("div");
+                rightLine.classList.add("line");
+                info.appendChild(leftLine);
+                info.appendChild(document.createTextNode(`Modelo cambiado a ${event.target.textContent}`));
+                info.appendChild(rightLine);
+                chatArea.appendChild(info);
             }
             event.target.classList.add("focused");
             currentModel = models[event.target.textContent];
         });
-        sideContent.appendChild(div);
+        sideContent.appendChild(item);
     }
 });
