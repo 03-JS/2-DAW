@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="./Scripts/Index.js"></script>
     <link rel="stylesheet" href="./Styles/Common.css">
 </head>
+
 <body>
     <div id="sideContent">
         <h2>Modelos IA</h2>
@@ -19,17 +21,24 @@
         <main>
             <div id="chat">
                 <div id="chatArea">
-                    <div class="user-message">Hi Star Chat!</div>
+                    <!-- <div class="user-message">Hi Star Chat!</div>
                     <div class="ai-message"><b>StarChat2:</b><br>Hey! How can I assist you today?</div>
                     <div class="user-message">Give me a brief description about the GPT-2 LLM model</div>
                     <div class="ai-message"><b>StarChat2:</b><br>
-                        GPT-2 (Generative Pre-trained Transformer 2) is a large language model developed by OpenAI. It is designed to generate coherent and contextually relevant text based on input prompts. GPT-2 uses the Transformer architecture, which allows it to process and generate sequential text efficiently.
+                        GPT-2 (Generative Pre-trained Transformer 2) is a large language model developed by OpenAI. It
+                        is designed to generate coherent and contextually relevant text based on input prompts. GPT-2
+                        uses the Transformer architecture, which allows it to process and generate sequential text
+                        efficiently.
                         Key characteristics of GPT-2 include:
-                        Unsupervised pretraining: Trained on a massive dataset of internet text without task-specific supervision.
+                        Unsupervised pretraining: Trained on a massive dataset of internet text without task-specific
+                        supervision.
                         Large scale: It features up to 1.5 billion parameters (in its largest version).
-                        Text generation: Capable of producing human-like text, completing prompts, translating, summarizing, and answering questions.
+                        Text generation: Capable of producing human-like text, completing prompts, translating,
+                        summarizing, and answering questions.
                         General-purpose: It works across a variety of NLP tasks without fine-tuning.
-                        OpenAI initially limited its release due to concerns about its potential misuse (e.g., generating fake news), but later made it publicly available in phases. GPT-2 marked a significant step toward large-scale language models like GPT-3 and GPT-4.
+                        OpenAI initially limited its release due to concerns about its potential misuse (e.g.,
+                        generating fake news), but later made it publicly available in phases. GPT-2 marked a
+                        significant step toward large-scale language models like GPT-3 and GPT-4.
                     </div>
                     <div class="info-message">
                         <div class="line"></div>
@@ -37,12 +46,13 @@
                         <div class="line"></div>
                     </div>
                     <div class="user-message">Hi Zephyr!</div>
-                    <div class="ai-message"><b>Zephyr:</b><br>Hello! How may I assist you today?</div>
+                    <div class="ai-message"><b>Zephyr:</b><br>Hello! How may I assist you today?</div> -->
                 </div>
-                <form action="./Scripts/Form.php" method="post" id="promptArea">
-                    <input type="text" name="prompt" id="prompt" placeholder="Envía un mensaje">
+                <div id="promptArea">
+                    <!-- <input type="hidden" name="currentModel" id="hiddenField"> -->
+                    <input type="text" name="prompt" id="prompt" placeholder="Envía un mensaje" autocomplete="off">
                     <button id="sendButton"></button>
-                </form>
+                </div>
             </div>
         </main>
         <footer>
@@ -50,4 +60,5 @@
         </footer>
     </div>
 </body>
+
 </html>
