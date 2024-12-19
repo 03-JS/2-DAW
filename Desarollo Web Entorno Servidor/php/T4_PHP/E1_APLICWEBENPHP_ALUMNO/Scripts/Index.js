@@ -89,7 +89,7 @@ async function SendDataToServer(event) {
         console.log(json);
         aiMessage.classList.remove("placeholder");
         if (json.success) {
-            aiMessage.innerHTML = `<b>${aiName}</b>:<br>${FormatCodeBlocks(json.output)}`;
+            aiMessage.innerHTML = `<b>${aiName}</b>:<br><md-block>${json.output}</md-block>`;
         } else {
             aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: I was unable to generate a reply`;
             console.error(json.message);
@@ -101,11 +101,4 @@ async function SendDataToServer(event) {
         aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: I was unable to generate a reply`;
         console.error('Error:', error);
     });
-}
-
-function FormatCodeBlocks(input) {
-    // input = input.replace(/```(.*?)```/gs, (_, code) => `<pre>${code}</pre>`);
-    // input = input.replace(/`([^`]+)`/g, (_, code) => `<code>${code}</code>`);
-    // input = input.replace(/^(\d+\.\s.*)$/gm, (_, line) => `<md-block>${line}</md-block>`);
-    return `<md-block>${input}</md-block>`;
 }
