@@ -53,6 +53,18 @@ button:hover {
     cursor: pointer;
 }
 
+pre, code {
+    background-color: rgba(40, 40, 40, 1);
+    width: fit-content;
+    padding: 0.5%;
+    border-radius: 10px;
+}
+
+code {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 ::placeholder {
     color: rgb(172, 172, 172);
 }
@@ -141,8 +153,12 @@ button:hover {
     row-gap: 5vh;
     overflow: auto;
     background-color: rgba(20, 20, 20, 1);
-    border-radius: 30px 0px 0px 30px;
+    border-radius: 30px;
     /* border: 1px solid rgba(65, 65, 65, 1); */
+}
+
+#chatArea::-webkit-scrollbar {
+    border-radius: 30px 0px 0px 30px;
 }
 
 .user-message {

@@ -2,19 +2,19 @@ let promptElement;
 
 let currentModel;
 const models = {
-    "StarChat2": "HuggingFaceH4/starchat2-15b-v0.1",
-    "Qwen2.5-Coder": "Qwen/Qwen2.5-Coder-32B-Instruct",
     "Phi 3.5 mini": "microsoft/Phi-3.5-mini-instruct",
     "Zephyr": "HuggingFaceH4/zephyr-7b-beta",
     "Hermes 3": "NousResearch/Hermes-3-Llama-3.2-3B",
-    "Mistral-Nemo": "mistralai/Mistral-Nemo-Instruct-2407"
+    "Mistral-Nemo": "mistralai/Mistral-Nemo-Instruct-2407",
+    "StarChat2": "HuggingFaceH4/starchat2-15b-v0.1",
+    "Qwen2.5-Coder": "Qwen/Qwen2.5-Coder-32B-Instruct"
 }; // Store in a database. Access it with php
 
 document.addEventListener("DOMContentLoaded", () => {
     promptElement = document.querySelector("#prompt");
     
     // AI Model selection
-    currentModel = models["StarChat2"];
+    currentModel = models["Phi 3.5 mini"];
     for (const [key, value] of Object.entries(models)) {
         let item = document.createElement("div");
         item.classList.add("item");
@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             event.target.classList.add("focused");
             currentModel = models[event.target.textContent];
-            hiddenField.value = currentModel;
         });
         sideContent.appendChild(item);
     }
@@ -50,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function SendDataToServer(event) {
     if (event.key && event.key != "Enter") return;
+    if (promptElement.value == "") return;
 
     // Create form data
     const formData = new FormData();
@@ -71,14 +71,24 @@ async function SendDataToServer(event) {
     .then(response => response.text())
     .then(data => {
         // Display LLM message
+        let aiName = Object.keys(models).find((key) => models[key] === currentModel);
+        let json = JSON.parse(data);
+        console.log(json);
         let aiMessage = document.createElement("div");
         aiMessage.classList.add("ai-message");
-        if (data.success) {    
-            aiMessage.innerHTML = data.output;
+        if (json.success) {
+            aiMessage.innerHTML = `<b>${aiName}</b>:<br>${FormatCodeBlocks(json.output)}`;
         } else {
-            aiMessage.innerHTML = data.message; 
+            aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: unable to generate a reply`;
+            console.error(json.message);
         }
         chatArea.appendChild(aiMessage);
     })
     .catch(error => console.error('Error:', error));
+}
+
+function FormatCodeBlocks(input) {
+    input = input.replace(/```(.*?)```/gs, (_, code) => `<pre>${code}</pre>`);
+    input = input.replace(/`([^`]+)`/g, (_, code) => `<code>${code}</code>`);
+    return input;
 }
