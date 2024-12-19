@@ -11,6 +11,7 @@ client = InferenceClient(api_key="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")
 # """
 
 user_input = sys.argv[2]
+# user_input = "Que es ChatGPT?"
 
 # formatted_prompt = prompt_template.format(user_input=user_input)
 
@@ -24,6 +25,7 @@ messages = [
 
 completion = client.chat.completions.create(
     model=sys.argv[1],
+    # model="NousResearch/Hermes-3-Llama-3.2-3B",
     messages=messages,
     max_tokens=4000,
     temperature=0.3

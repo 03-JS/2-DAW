@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 info.appendChild(document.createTextNode(`Modelo cambiado a ${event.target.textContent}`));
                 info.appendChild(rightLine);
                 chatArea.appendChild(info);
+                chatArea.scrollTop = chatArea.scrollHeight;
             }
             event.target.classList.add("focused");
             currentModel = models[event.target.textContent];
@@ -62,6 +63,18 @@ async function SendDataToServer(event) {
     userMessage.innerHTML = promptElement.value;
     promptElement.value = "";
     chatArea.appendChild(userMessage);
+    chatArea.scrollTop = chatArea.scrollHeight;
+    let aiMessage;
+    setTimeout(() => {
+        aiMessage = document.createElement("div");
+        aiMessage.classList.add("ai-message", "placeholder");
+        // let loadingImg = document.createElement("img");
+        // loadingImg.src = "./Media/Pictures/loading.gif";
+        // aiMessage.appendChild(loadingImg);
+        aiMessage.appendChild(document.createTextNode("Generando respuesta"));
+        chatArea.appendChild(aiMessage);
+        chatArea.scrollTop = chatArea.scrollHeight;
+    }, 250);
 
     // Send form data
     fetch('./Scripts/ProcessForm.php', {
@@ -74,21 +87,25 @@ async function SendDataToServer(event) {
         let aiName = Object.keys(models).find((key) => models[key] === currentModel);
         let json = JSON.parse(data);
         console.log(json);
-        let aiMessage = document.createElement("div");
-        aiMessage.classList.add("ai-message");
+        aiMessage.classList.remove("placeholder");
         if (json.success) {
             aiMessage.innerHTML = `<b>${aiName}</b>:<br>${FormatCodeBlocks(json.output)}`;
         } else {
-            aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: unable to generate a reply`;
+            aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: I was unable to generate a reply`;
             console.error(json.message);
         }
-        chatArea.appendChild(aiMessage);
+        document.querySelector(".placeholder").remove();
+        chatArea.scrollTop = chatArea.scrollHeight;
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: I was unable to generate a reply`;
+        console.error('Error:', error);
+    });
 }
 
 function FormatCodeBlocks(input) {
-    input = input.replace(/```(.*?)```/gs, (_, code) => `<pre>${code}</pre>`);
-    input = input.replace(/`([^`]+)`/g, (_, code) => `<code>${code}</code>`);
-    return input;
+    // input = input.replace(/```(.*?)```/gs, (_, code) => `<pre>${code}</pre>`);
+    // input = input.replace(/`([^`]+)`/g, (_, code) => `<code>${code}</code>`);
+    // input = input.replace(/^(\d+\.\s.*)$/gm, (_, line) => `<md-block>${line}</md-block>`);
+    return `<md-block>${input}</md-block>`;
 }

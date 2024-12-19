@@ -1,9 +1,7 @@
 <?php
 
-// $model = $_POST["currentModel"];
-// $prompt = $_POST["prompt"];
-$model = "microsoft/Phi-3.5-mini-instruct";
-$prompt = "Escribe los números primos del 1 al 100";
+$model = $_POST["currentModel"];
+$prompt = $_POST["prompt"];
 
 $command = escapeshellcmd(escapeshellarg("../../../../../../2-DAW/.venv/Scripts/python.exe ") . "./AI.py " . escapeshellarg($model) . " " . escapeshellarg($prompt));
 $output = shell_exec($command);

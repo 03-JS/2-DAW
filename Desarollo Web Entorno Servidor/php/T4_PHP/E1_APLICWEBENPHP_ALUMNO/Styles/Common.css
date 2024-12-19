@@ -66,7 +66,7 @@ code {
 }
 
 ::placeholder {
-    color: rgb(172, 172, 172);
+    color: rgba(172, 172, 172, 1);
 }
 
 #profileIcon {
@@ -177,6 +177,16 @@ code {
     height: fit-content;
     margin-right: 2%;
     /* padding: 1%; */
+    animation: reveal 1s forwards;
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .info-message {
@@ -188,6 +198,24 @@ code {
     height: fit-content;
     color: rgb(172, 172, 172);
     text-align: center;
+}
+
+.placeholder {
+    color: rgba(172, 172, 172, 1);
+    /* background-color: rgba(40, 40, 40, 1); */
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
 }
 
 .line {
@@ -232,5 +260,5 @@ code {
 }
 
 #sendButton:hover {
-    background-color: rgba(40, 40, 40, 1);
+    background-color: rgb(40, 40, 40);
 }
