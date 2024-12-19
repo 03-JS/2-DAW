@@ -64,6 +64,7 @@ async function SendDataToServer(event) {
     promptElement.value = "";
     chatArea.appendChild(userMessage);
     chatArea.scrollTop = chatArea.scrollHeight;
+    let aiName = Object.keys(models).find((key) => models[key] === currentModel);
     let aiMessage;
     setTimeout(() => {
         aiMessage = document.createElement("div");
@@ -84,7 +85,6 @@ async function SendDataToServer(event) {
     .then(response => response.text())
     .then(data => {
         // Display LLM message
-        let aiName = Object.keys(models).find((key) => models[key] === currentModel);
         let json = JSON.parse(data);
         console.log(json);
         aiMessage.classList.remove("placeholder");
@@ -94,7 +94,6 @@ async function SendDataToServer(event) {
             aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: I was unable to generate a reply`;
             console.error(json.message);
         }
-        document.querySelector(".placeholder").remove();
         chatArea.scrollTop = chatArea.scrollHeight;
     })
     .catch(error => {

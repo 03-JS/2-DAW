@@ -7,7 +7,7 @@ $command = escapeshellcmd(escapeshellarg("../../../../../../2-DAW/.venv/Scripts/
 $output = shell_exec($command);
 $output = mb_convert_encoding($output, 'UTF-8', mb_detect_encoding($output, 'UTF-8, ISO-8859-1', true));
 
-if ($output === null) {
+if ($output === "") {
     http_response_code(500); // Server error
     echo json_encode([
         'success' => false,
@@ -19,7 +19,7 @@ if ($output === null) {
         'success' => true,
         'output' => htmlspecialchars($output),
         'model' => $model,
-        'propmt' => $prompt
+        'prompt' => $prompt
     ]);
 }
 
