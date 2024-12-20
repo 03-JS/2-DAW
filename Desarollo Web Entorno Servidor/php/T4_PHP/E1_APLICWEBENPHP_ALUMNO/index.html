@@ -4,35 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat</title>
-    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
-    <script src="./Scripts/Index.js"></script>
+    <title>Log in</title>
     <link rel="stylesheet" href="./Styles/Common.css">
+    <link rel="stylesheet" href="./Styles/Login.css">
 </head>
 
 <body>
-    <div id="sideContent">
-        <h2>Modelos IA</h2>
-    </div>
-    <div id="content">
-        <header>
-            <h2 id="chatTitle">Chat</h2>
-            <img src="./Media/Pictures/chibi_opera.png" id="profileIcon">
-        </header>
-        <main>
-            <div id="chat">
-                <div id="chatArea"></div>
-                <div id="promptArea">
-                    <!-- <input type="hidden" name="currentModel" id="hiddenField"> -->
-                    <input type="text" name="prompt" id="prompt" placeholder="Envía un mensaje" autocomplete="off">
-                    <button id="sendButton"></button>
-                </div>
+    <header>
+        <h1>Chatbot Playground</h1>
+    </header>
+    <main>
+        <div class="panel">
+            <h1>Iniciar sesión</h1>
+            <div class="row">
+                <input type="text" name="user" autocomplete="off" placeholder="Nombre de usuario">
+                <input type="password" name="passwd" autocomplete="off" placeholder="Contraseña">
             </div>
-        </main>
-        <footer>
-            © 2024 - Javier Sarch
-        </footer>
-    </div>
+        </div>
+    </main>
 </body>
 
 </html>
