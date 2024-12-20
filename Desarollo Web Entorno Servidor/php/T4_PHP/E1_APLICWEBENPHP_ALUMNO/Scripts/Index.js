@@ -1,5 +1,6 @@
-let promptElement;
+let awaitingResponse;
 
+let promptElement;
 let currentModel;
 const models = {
     "Phi 3.5 mini": "microsoft/Phi-3.5-mini-instruct",
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (value === currentModel) item.classList.add("focused");
         item.innerHTML = `<img src="./Media/Pictures/ai.png">${key}`;
         item.addEventListener("click", (event) => {
+            if (awaitingResponse) return;
             for (const child of sideContent.children) {
                 child.classList.remove("focused");
             }
@@ -51,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function SendDataToServer(event) {
     if (event.key && event.key != "Enter") return;
     if (promptElement.value == "") return;
+    if (awaitingResponse) return;
 
     // Create form data
     const formData = new FormData();
@@ -64,10 +67,10 @@ async function SendDataToServer(event) {
     promptElement.value = "";
     chatArea.appendChild(userMessage);
     chatArea.scrollTop = chatArea.scrollHeight;
+    awaitingResponse = true;
     let aiName = Object.keys(models).find((key) => models[key] === currentModel);
-    let aiMessage;
+    let aiMessage = document.createElement("div");
     setTimeout(() => {
-        aiMessage = document.createElement("div");
         aiMessage.classList.add("ai-message", "placeholder");
         // let loadingImg = document.createElement("img");
         // loadingImg.src = "./Media/Pictures/loading.gif";
@@ -89,15 +92,18 @@ async function SendDataToServer(event) {
         console.log(json);
         aiMessage.classList.remove("placeholder");
         if (json.success) {
-            aiMessage.innerHTML = `<b>${aiName}</b>:<br><md-block>${json.output}</md-block>`;
+            aiMessage.innerHTML = `<md-block><b>${aiName}</b>:<br>${json.output}</md-block>`;
         } else {
-            aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: I was unable to generate a reply`;
+            aiMessage.innerHTML = `<md-block><b>${aiName}</b>:<br>Error: I was unable to generate a reply</md-block>`;
             console.error(json.message);
         }
         chatArea.scrollTop = chatArea.scrollHeight;
+        awaitingResponse = false;
     })
     .catch(error => {
-        aiMessage.innerHTML = `<b>${aiName}</b>:<br>Error: I was unable to generate a reply`;
+        aiMessage.classList.remove("placeholder");
+        aiMessage.innerHTML = `<md-block><b>${aiName}</b>:<br>Error: I was unable to generate a reply</md-block>`;
+        awaitingResponse = false;
         console.error('Error:', error);
     });
 }
