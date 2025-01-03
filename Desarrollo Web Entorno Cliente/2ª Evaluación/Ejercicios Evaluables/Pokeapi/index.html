@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Experience Battle</title>
     <link rel="stylesheet" href="Style/Index.css">
+    <script src="./Scripts/Index.js"></script>
 </head>
 
 <body>
     <div class="frame">
         <div class="side-section">
-            <div id="totalMachine">169</div>
+            <div id="totalMachine">0</div>
             <div id="cartasMachine">
                 <div class="card">
                     <div class="xp-number">64</div>
@@ -53,11 +54,11 @@
                         alt="" class="card-img">
                     <div class="card-name">Bulbasaur</div>
                 </div>
-                <div class="card">
-                    <div class="xp-number">64</div>
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+                <div class="machine card">
+                    <span>Pokémon Experience</span>
+                    <img src="./Media/Pictures/Poké_Ball_icon.png"
                         alt="" class="card-img">
-                    <div class="card-name">Bulbasaur</div>
+                    <span>Battle</span>
                 </div>
             </div>
             <div id="tablero">
@@ -108,7 +109,7 @@
             </div>
         </div>
         <div class="side-section">
-            <div id="totalPlayer">420</div>
+            <div id="totalPlayer">0</div>
             <div id="cartasPlayer">
                 <div class="card">
                     <div class="xp-number">62</div>
@@ -123,6 +124,7 @@
                     <div class="card-name">Charmander</div>
                 </div>
             </div>
+            <div id="turnIndicator">Tu turno</div>
         </div>
 </body>
 
