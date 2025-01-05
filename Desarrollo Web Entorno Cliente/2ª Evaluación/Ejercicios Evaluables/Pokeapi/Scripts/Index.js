@@ -10,8 +10,8 @@ let playerMoved;
 document.addEventListener("DOMContentLoaded", async () => {
     await GenerateHands();
     machineHand.sort((a, b) => a["Experience"] - b["Experience"]);
-    console.log(machineHand);
-    RandomlySetTurn();
+    DisplayMessage("Cargando", true);
+    setTimeout(RandomlySetTurn, 3000);
 });
 
 async function GenerateHands() {
@@ -83,11 +83,14 @@ async function GenerateHands() {
                     if (playerMoved) return;
                     jugadaPlayer.appendChild(event.currentTarget);
                     playerMoved = true;
-                    if (tableroPlayer.querySelectorAll(".card").length == 0) EndGame("¡Has ganado!");
+                    if (tableroPlayer.querySelectorAll(".card").length == 0) DisplayMessage("¡Has ganado!");
                     if (!machineMoved) {
                         StartCounterPlay();
                     }
-                    else setTimeout(DistributePoints, 3000);
+                    else {
+                        setTimeout(() => DisplayMessage("Deliverando", true), 1500);
+                        setTimeout(DistributePoints, 3000);
+                    }
                     turn = 0;
                     turnIndicator.innerHTML = "Turno de la IA";
                 });
@@ -101,6 +104,7 @@ async function GenerateHands() {
 }
 
 function RandomlySetTurn() {
+    hiddenDisplay.classList.add("hidden");
     if (Math.floor(Math.random() * 2)) {
         turn = 1;
         turnIndicator.innerHTML = "Tu turno";
@@ -155,12 +159,15 @@ function CreateMachineCard(selectedCard = machineHand[Math.floor(Math.random() *
     card.appendChild(name);
     jugadaMachine.appendChild(card);
     machineHand.splice(machineHand.indexOf(selectedCard), 1);
-    console.log(machineHand);
     machineMoved = true;
-    if (playerMoved) setTimeout(DistributePoints, 3000);
+    if (playerMoved) {
+        setTimeout(() => DisplayMessage("Deliverando", true), 1500);
+        setTimeout(DistributePoints, 3000);
+    }
 }
 
 function DistributePoints() {
+    hiddenDisplay.classList.add("hidden");
     let playerXp = parseInt(jugadaPlayer.querySelector(".xp-number").innerText);
     let machineXp = parseInt(jugadaMachine.querySelector(".xp-number").innerText);
     if (playerXp > machineXp) {
@@ -180,7 +187,8 @@ function DistributePoints() {
         cartasPlayer.appendChild(jugadaMachine.querySelector(".card"));
     }
     if (totalMachine.innerHTML >= 1000 || totalPlayer.innerHTML >= 1000) {
-        EndGame();
+        totalMachine.innerHTML >= 1000 ? DisplayMessage("¡Ha ganado la IA!", false) : DisplayMessage("¡Has ganado!", false);
+        setTimeout(window.location.reload, 3000);
     }
     machineMoved = false;
     playerMoved = false;
@@ -193,8 +201,8 @@ function DistributePoints() {
     };
 }
 
-function EndGame(message) {
+function DisplayMessage(message, showImg) {
     hiddenDisplay.classList.remove("hidden");
-    hiddenDisplay.innerHTML = message;
-    setTimeout(window.location.reload, 3000);
+    showImg ? hiddenDisplay.querySelector("img").classList.remove("hidden") : hiddenDisplay.querySelector("img").classList.add("hidden");
+    hiddenDisplay.querySelector("span").innerHTML = message;
 }
