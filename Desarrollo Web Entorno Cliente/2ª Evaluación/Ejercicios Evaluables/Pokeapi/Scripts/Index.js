@@ -6,11 +6,12 @@ let machineMoved;
 let playerHand = [];
 let playerCard;
 let playerMoved;
+let turn;
 
 document.addEventListener("DOMContentLoaded", async () => {
+    DisplayMessage("Cargando", true);
     await GenerateHands();
     machineHand.sort((a, b) => a["Experience"] - b["Experience"]);
-    DisplayMessage("Cargando", true);
     setTimeout(RandomlySetTurn, 3000);
 });
 
@@ -80,10 +81,14 @@ async function GenerateHands() {
                 card.appendChild(pokemon);
                 card.appendChild(name);
                 card.addEventListener("click", (event) => {
-                    if (playerMoved) return;
+                    if (playerMoved || turn == 0) return;
                     jugadaPlayer.appendChild(event.currentTarget);
                     playerMoved = true;
-                    if (tableroPlayer.querySelectorAll(".card").length == 0) DisplayMessage("¡Has ganado!");
+                    if (tableroPlayer.querySelectorAll(".card").length == 0) {
+                        DisplayMessage("¡Has ganado!");
+                        setTimeout(() => window.location.reload(), 3000);
+                        return;
+                    };
                     if (!machineMoved) {
                         StartCounterPlay();
                     }
@@ -110,6 +115,7 @@ function RandomlySetTurn() {
         turnIndicator.innerHTML = "Tu turno";
         return;
     }
+    turn = 0;
     turnIndicator.innerHTML = "Turno de la IA";
     setTimeout(() => {
         CreateMachineCard();
@@ -188,13 +194,14 @@ function DistributePoints() {
     }
     if (totalMachine.innerHTML >= 1000 || totalPlayer.innerHTML >= 1000) {
         totalMachine.innerHTML >= 1000 ? DisplayMessage("¡Ha ganado la IA!", false) : DisplayMessage("¡Has ganado!", false);
-        setTimeout(window.location.reload, 3000);
+        setTimeout(() => window.location.reload(), 3000);
+        return;
     }
     machineMoved = false;
     playerMoved = false;
     if (turn == 0) {
-        CreateMachineCard()
         setTimeout(() => {
+            CreateMachineCard()
             turn = 1;
             turnIndicator.innerHTML = "Tu turno";
         }, 3000);
