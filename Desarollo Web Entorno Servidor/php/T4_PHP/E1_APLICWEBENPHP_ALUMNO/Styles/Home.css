@@ -169,9 +169,16 @@
     border-radius: 1.5rem;
     width: 45vw;
     height: 5vh;
-    text-indent: 2%;
-    /* padding-left: 2%; */
-    /* padding-right: 2%; */
+    max-height: 20vh;
+    /* text-indent: 2%; */
+    line-height: 4vh;
+    resize: none;
+    overflow: hidden;
+    font-size: medium;
+    font-family: ui-sans-serif,-apple-system,system-ui,Segoe UI,Helvetica,Apple Color Emoji,Arial,sans-serif,Segoe UI Emoji,Segoe UI Symbol;
+    padding-left: 2%;
+    padding-right: 2%;
+    box-sizing: border-box;
 }
 
 #sendButton {

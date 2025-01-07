@@ -43,7 +43,7 @@ footer {
     height: 7vh;
 }
 
-input {
+input, textarea {
     outline: none;
     color: #d3d3d3;
     caret-color: #d3d3d3;
@@ -67,4 +67,6 @@ code {
 
 ::placeholder {
     color: rgba(172, 172, 172, 1);
+    align-self: center;
+    justify-self: center;
 }
