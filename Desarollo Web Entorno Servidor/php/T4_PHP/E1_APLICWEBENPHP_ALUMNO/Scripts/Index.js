@@ -53,13 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
     promptElement.addEventListener('input', (event) => {
         event.target.style.height = "5vh";
         event.target.style.height = event.target.scrollHeight + 'px';
+        promptElement.scrollHeight > promptElement.clientHeight ? promptElement.classList.add("scrollable") : promptElement.classList.remove("scrollable");
     });
 });
 
-async function SendDataToServer(event) {
+function SendDataToServer(event) {
     if (event.key && (event.key != "Enter" || event.shiftKey)) return;
     if (promptElement.value.trim() == "") return;
     if (awaitingResponse) return;
+    event.preventDefault();
 
     // Create form data
     const formData = new FormData();
