@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log in</title>
+    <title>Create an account</title>
     <link rel="stylesheet" href="./Styles/Common.css">
     <link rel="stylesheet" href="./Styles/Login.css">
-    <script src="./Scripts/Login.js"></script>
+    <link rel="stylesheet" href="./Styles/CreateAccount.css">
 </head>
 
 <body>
@@ -17,13 +17,12 @@
     </header>
     <main>
         <div class="panel">
-            <h1>Iniciar sesión</h1>
+            <h1>Crear una cuenta</h1>
             <input type="text" name="user" autocomplete="off" placeholder="Nombre de usuario">
             <input type="password" name="passwd" autocomplete="off" placeholder="Contraseña">
-            <div class="grid-row">
-                <button id="loginButton">Inicia sesión</button>
-                <button id="createAccButton">Crear cuenta</button>
-            </div>
+            <div class="line"></div>
+            <button id="uploadPfp">Subir foto de perfil</button>
+            <button id="createAccButton">Crear cuenta</button>
         </div>
     </main>
 </body>

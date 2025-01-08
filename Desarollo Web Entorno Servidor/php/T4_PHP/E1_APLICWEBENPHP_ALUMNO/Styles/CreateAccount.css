@@ -1,0 +1,15 @@
+.panel {
+    height: 50vh;
+}
+
+.line {
+    background-color: rgba(65, 65, 65, 1);
+    width: 12vw;
+    height: 2px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#createAccButton {
+    width: 35%;
+}
