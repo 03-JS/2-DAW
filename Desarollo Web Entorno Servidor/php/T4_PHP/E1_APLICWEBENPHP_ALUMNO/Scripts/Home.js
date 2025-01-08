@@ -62,6 +62,7 @@ function SendDataToServer(event) {
     if (promptElement.value.trim() == "") return;
     if (awaitingResponse) return;
     event.preventDefault();
+    event.target.style.height = "5vh";
 
     // Create form data
     const formData = new FormData();
