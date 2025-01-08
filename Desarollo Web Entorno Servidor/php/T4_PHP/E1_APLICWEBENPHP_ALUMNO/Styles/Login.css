@@ -2,6 +2,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #000f9b;
+    /* background-image: linear-gradient(150deg, #000f9b 0%, #eb0000 46%, #a000eb 100%); */
+    background-image: linear-gradient( 120deg, #a000eb 0%, #000f9b 40%, #eb0000 90%);
 }
 
 input {
@@ -30,8 +33,8 @@ main {
     align-items: center;
     row-gap: 1vh;
     background-color: rgba(20, 20, 20, 1);
-    width: 25%;
-    height: 30vh;
+    width: 20vw;
+    height: 40vh;
     border-radius: 15px;
     scale: 1.2;
 }
@@ -39,8 +42,30 @@ main {
 .row {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     width: fit-content;
     height: fit-content;
     row-gap: 1vh;
+}
+
+.button-row {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 1vw;
+    width: 100%;
+}
+
+#loginButton, #createAccButton {
+    /* width: 12vw; */
+    height: 4vh;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15%;
+    transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+#loginButton:hover, #createAccButton:hover {
+    background: #095caf;
+    color: white;
 }
