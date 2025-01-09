@@ -1,0 +1,21 @@
+<peliculas>
+  <pelicula>
+    <titulo>PHP: Tras el Analizador</titulo>
+    <personajes>
+      <personaje>
+        <nombre>Sra. Programadora</nombre>
+        <actor>Onlivia Actora</actor>
+      </personaje>
+      <personaje>
+        <nombre>Sr. Programador</nombre>
+        <actor>El Actor</actor>
+      </personaje>
+    </personajes>
+    <argumento>Intrigante y temible parodia</argumento>
+    <grandes-frases>
+      <frase>Esto soluciona todos los problemas</frase>
+    </grandes-frases>
+    <puntuacion tipo="votos">7</puntuacion>
+    <puntuacion tipo="estrellas">5</puntuacion>
+  </pelicula>
+</peliculas>
