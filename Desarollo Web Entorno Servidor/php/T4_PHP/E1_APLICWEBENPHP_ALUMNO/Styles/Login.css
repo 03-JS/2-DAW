@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     /* background-image: linear-gradient(150deg, #000f9b 0%, #eb0000 46%, #a000eb 100%); */
-    background-image: linear-gradient( 120deg, #FF0024 0%, #0000EA 80%);
+    background-image: linear-gradient( 120deg, #FF0024 0%, #0000EA 90%);
 }
 
 input {
@@ -11,10 +11,14 @@ input {
     border-radius: 5px;
     width: 12vw;
     height: 4vh;
-    /* border: 1px solid rgba(65, 65, 65, 1); */
-    border: none;
+    border: 1px solid rgba(40, 40, 40, 1);
+    /* border: none; */
     /* padding-left: 5%; */
     text-indent: 5%;
+}
+
+input:hover, input:focus {
+    border: 1px solid #0000EA;
 }
 
 header {

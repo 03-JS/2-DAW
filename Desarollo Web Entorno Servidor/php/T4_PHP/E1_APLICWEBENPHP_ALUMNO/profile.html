@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit profile</title>
+    <link rel="stylesheet" href="./Styles/Common.css">
+    <link rel="stylesheet" href="./Styles/Profile.css">
+</head>
+
+<body>
+    <header>
+        <h1>Editar perfil</h1>
+    </header>
+    <main>
+        <div class="panel">
+            <div id="pfpContainer">
+                <img src="./Media/Pictures/chibi_opera.png" id="pfp">
+                <span>Subir foto de perfil</span>
+            </div>
+            <!-- <button id="uploadPfp">Subir foto de perfil</button> -->
+            <div id="middleRow">
+                <span>Nombre de usuario</span>
+                <input type="text" name="username" id="username" value="JS03">
+                <span>Contraseña</span>
+                <input type="password" name="passwd" id="passwd" value="Password">
+            </div>
+            <div class="row" id="bottomRow">
+                <button id="back">Volver</button>
+                <button id="save" class="greyed-out">Guardar cambios</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
