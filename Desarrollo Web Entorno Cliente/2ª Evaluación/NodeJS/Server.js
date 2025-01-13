@@ -1,32 +1,17 @@
-// No express
+const express = require('express');
+const bodyParser = require('body-parser');
+// const mysql = require('mysql2');
 
-// var http = require("http");
+const port = 3000;
 
-// var server = http.createServer();
+//Declaramos la aplicación
+const app = express()
+require("./routes/usuarios.routes.js")(app);
 
-// function mensaje(peticion, respuesta) {
-//     respuesta.writeHead(200, {"Content-Type": "text/plain"});
-//     respuesta.write("Hola mundo");
-//     respuesta.end();
-// }
+// Configurar body-parser
+app.use(bodyParser.json());
 
-// server.on("request", mensaje);
-
-// server.listen(3000, function() {
-//     console.log("La aplicación está funcionando en el puerto 3000");
-// });
-
-
-// Express
-
-const express = require("express");
-
-const app = express();
-
-app.get("/hola", (req, res) => {
-    res.send("Hello World!");
-});
-
-app.listen(3000, () => {
-    console.log("Example app listening at http://localhost:" + 3000);
+//Arrancamos el servidor
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
 });
