@@ -3,11 +3,25 @@
 }
 
 .line {
-    background-color: rgba(65, 65, 65, 1);
+    /* background-color: rgba(65, 65, 65, 1); */
+    background-image: linear-gradient(120deg, #0000EA 0%, #FF0024 90%);
     width: 12vw;
     height: 2px;
     margin-top: 5%;
     margin-bottom: 5%;
+}
+
+#uploadPfp {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: linear-gradient(rgba(20, 20, 20, 1), rgba(20, 20, 20, 1)) padding-box,
+        linear-gradient(140deg, #0000EA 0%, #FF0024 90%) border-box;
+    transition: background 0.15s ease-in-out, transform 0.1s ease-in-out;
+}
+
+#uploadPfp:hover {
+    background-image: linear-gradient(120deg, #FF0024 0%, #0000EA 90%);
+    transform: scale(1.03);
 }
 
 #createAccButton {
