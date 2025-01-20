@@ -67,7 +67,7 @@ function SendDataToServer(event) {
     // Create form data
     const formData = new FormData();
     formData.append("currentModel", currentModel);
-    formData.append("prompt", promptElement.value);
+    formData.append("prompt", promptElement.value.replace(/[\r\n]/g, ''));
 
     // Display message
     let userMessage = document.createElement("div");

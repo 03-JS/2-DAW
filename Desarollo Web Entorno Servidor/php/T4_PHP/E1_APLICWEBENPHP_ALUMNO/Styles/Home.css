@@ -109,6 +109,7 @@
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -135,9 +136,11 @@
     0% {
         opacity: 0.5;
     }
+
     50% {
         opacity: 1;
     }
+
     100% {
         opacity: 0.5;
     }
@@ -167,13 +170,15 @@
     height: 5vh;
     max-height: 20vh;
     /* text-indent: 2%; */
-    line-height: 4.25vh;
+    /* line-height: 4.25vh; */
     resize: none;
     overflow: auto;
     font-size: medium;
-    font-family: ui-sans-serif,-apple-system,system-ui,Segoe UI,Helvetica,Apple Color Emoji,Arial,sans-serif,Segoe UI Emoji,Segoe UI Symbol;
+    font-family: ui-sans-serif, -apple-system, system-ui, Segoe UI, Helvetica, Apple Color Emoji, Arial, sans-serif, Segoe UI Emoji, Segoe UI Symbol;
     padding-left: 2%;
     padding-right: 2%;
+    padding-top: 0.75%;
+    padding-bottom: 0.75%;
     box-sizing: border-box;
 }
 
