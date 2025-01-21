@@ -1,0 +1,26 @@
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px gray;
+}
+
+input {
+    padding: 20px;
+    width: calc(100% - 45px);
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.enviado {
+    background-color: khaki;
+}
