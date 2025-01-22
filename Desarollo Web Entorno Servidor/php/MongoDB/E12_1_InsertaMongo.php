@@ -8,7 +8,7 @@ try {
     // Crear una instancia del cliente de MongoDB
     $cliente = new MongoDB\Client($cadenaConexion);
     // Selecciona la base de datos
-    $bd = $cliente->userblogdb;
+    $bd = $cliente->userblogbd;
     echo 'Conectado' . PHP_EOL;
 
     // Selecciona colección

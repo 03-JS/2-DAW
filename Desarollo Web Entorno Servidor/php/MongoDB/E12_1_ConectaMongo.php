@@ -7,7 +7,7 @@ try {
     $cadenaConexion = 'mongodb://127.0.0.1:27017';
 
     $cliente = new MongoDB\Client($cadenaConexion);
-    $bd      = $cliente->userblogdb;
+    $bd      = $cliente->userblogbd;
     echo 'Conectado';
 
 } catch (Exception $e) {
