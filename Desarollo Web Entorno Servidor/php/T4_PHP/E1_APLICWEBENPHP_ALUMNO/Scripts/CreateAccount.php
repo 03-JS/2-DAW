@@ -15,19 +15,16 @@ if (!$link) {
     echo mysqli_connect_errno() . PHP_EOL;
 } else {
     $username = $_POST["username"];
-    $passwd = $_POST["passwd"];
+    $passwd = $_POST["password"];
 
-    $query = 'select * from usuarios ' .
-        'where username = "' . $username . '"' .
-        'and passwd ="' . $passwd . '"';
-    $result    = mysqli_query($link, $query);
-    $num_filas = mysqli_num_rows($result);
-    echo json_encode([
-        'success' => $num_filas > 0
-    ]);
+    /* Inserta filas */
+    $insert_query = "INSERT INTO users "
+                  . "(username, passwd, picture_path) "
+                  . "VALUES ($username, $passwd, )";
+
+    echo $insert_query . '<br>';
+    mysqli_query($link, $insert_query);
+    printf("Affected rows (INSERT): %d\n", mysqli_affected_rows($link));
 }
-
-// Cerramos conexión
-mysqli_close($link);
 
 ?>

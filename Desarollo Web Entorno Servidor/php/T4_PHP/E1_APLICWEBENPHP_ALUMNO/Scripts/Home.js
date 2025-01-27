@@ -9,7 +9,7 @@ const models = {
     "Mistral-Nemo": "mistralai/Mistral-Nemo-Instruct-2407",
     "StarChat2": "HuggingFaceH4/starchat2-15b-v0.1",
     "Qwen2.5-Coder": "Qwen/Qwen2.5-Coder-32B-Instruct"
-}; // Store in a database. Access it with php
+};
 
 document.addEventListener("DOMContentLoaded", () => {
     promptElement = document.querySelector("#prompt");
