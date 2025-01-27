@@ -23,6 +23,7 @@ if (!$link) {
     $result    = mysqli_query($link, $query);
     $num_filas = mysqli_num_rows($result);
     echo json_encode([
+        'query' => $query,
         'success' => $num_filas > 0
     ]);
 }

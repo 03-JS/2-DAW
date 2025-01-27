@@ -186,9 +186,8 @@
     border-radius: 1.5rem 0rem 0rem 1.5rem !important;
 }
 
-#sendButton {
+#sendButton, #downloadButton {
     background-color: rgba(65, 65, 65, 1);
-    background-image: url("../Media/Pictures/send.png");
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: center;
@@ -201,6 +200,14 @@
     transition: background-color 0.15s ease-in-out;
 }
 
-#sendButton:hover {
+#sendButton:hover, #downloadButton:hover {
     background-color: rgb(40, 40, 40);
+}
+
+#sendButton {
+    background-image: url("../Media/Pictures/send.png");
+}
+
+#downloadButton {
+    background-image: url("../Media/Pictures/download.png");
 }

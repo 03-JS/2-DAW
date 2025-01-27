@@ -18,13 +18,14 @@ if (!$link) {
     $passwd = $_POST["password"];
 
     /* Inserta filas */
-    $insert_query = "INSERT INTO users "
+    $query = "INSERT INTO users "
                   . "(username, passwd, picture_path) "
                   . "VALUES ($username, $passwd, )";
-
-    echo $insert_query . '<br>';
-    mysqli_query($link, $insert_query);
-    printf("Affected rows (INSERT): %d\n", mysqli_affected_rows($link));
+    mysqli_query($link, $query);
+    echo json_encode([
+        'query' => $query,
+        'success' => mysqli_affected_rows($link) != -1
+    ]);
 }
 
 ?>
