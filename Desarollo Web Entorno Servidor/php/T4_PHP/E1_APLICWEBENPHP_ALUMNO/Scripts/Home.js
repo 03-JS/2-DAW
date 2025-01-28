@@ -63,9 +63,11 @@ function SendDataToServer(event) {
     if (awaitingResponse) return;
     event.preventDefault();
     event.target.style.height = "5vh";
+    let aiName = Object.keys(models).find((key) => models[key] === currentModel);
 
     // Create form data
     const formData = new FormData();
+    formData.append("modelDisplayName", aiName);
     formData.append("currentModel", currentModel);
     formData.append("prompt", promptElement.value.replace(/[\r\n]/g, ''));
 
@@ -77,7 +79,6 @@ function SendDataToServer(event) {
     chatArea.appendChild(userMessage);
     chatArea.scrollTop = chatArea.scrollHeight;
     awaitingResponse = true;
-    let aiName = Object.keys(models).find((key) => models[key] === currentModel);
     let aiMessage = document.createElement("div");
     setTimeout(() => {
         aiMessage.classList.add("ai-message", "placeholder");
