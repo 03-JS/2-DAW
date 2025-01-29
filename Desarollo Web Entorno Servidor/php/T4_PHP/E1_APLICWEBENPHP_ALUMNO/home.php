@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: ./index.html");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +43,7 @@
             </div>
         </main>
         <footer>
-            © 2024 - Javier Sarch
+            © 2024/25 - Javier Sarch
         </footer>
     </div>
 </body>

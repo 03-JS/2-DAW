@@ -55,6 +55,11 @@ document.addEventListener("DOMContentLoaded", () => {
         event.target.style.height = event.target.scrollHeight + 'px';
         promptElement.scrollHeight > promptElement.clientHeight ? promptElement.classList.add("scrollable") : promptElement.classList.remove("scrollable");
     });
+
+    // Downloading chats
+    downloadButton.addEventListener("click", () => {
+        window.open('./Scripts/SaveConversation.php', '_blank');
+    });
 });
 
 function SendDataToServer(event) {
