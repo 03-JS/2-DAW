@@ -19,10 +19,11 @@
     <main>
         <div class="panel">
             <h1>Crear una cuenta</h1>
-            <input type="text" name="username" id="username" autocomplete="off" placeholder="Nombre de usuario">
-            <input type="password" name="passwd" id="passwd" autocomplete="off" placeholder="Contraseña">
+            <input type="text" id="username" autocomplete="off" placeholder="Nombre de usuario">
+            <input type="password" id="passwd" autocomplete="off" placeholder="Contraseña">
             <div class="line"></div>
-            <button id="uploadPfp">Subir foto de perfil</button>
+            <label for="upload" id="uploadPfp">Subir foto de perfil</label>
+            <input hidden type="file" id="upload" accept="image/png, image/jpeg">
             <button id="createAccButton">Crear cuenta</button>
         </div>
     </main>

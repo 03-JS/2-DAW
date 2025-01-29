@@ -12,14 +12,17 @@
 }
 
 #uploadPfp {
+    box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 5px;
     background: linear-gradient(rgba(20, 20, 20, 1), rgba(20, 20, 20, 1)) padding-box,
         linear-gradient(140deg, #0000EA 0%, #FF0024 90%) border-box;
     transition: background 0.15s ease-in-out, transform 0.1s ease-in-out;
+    font-size: medium;
 }
 
 #uploadPfp:hover {
+    cursor: pointer;
     background-image: linear-gradient(120deg, #FF0024 0%, #0000EA 90%);
     transform: scale(1.03);
 }
