@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h2>Fromulario Envio Correo</h2>
+    <form action="E14_phpMailer4.php" method="post" enctype="multipart/form-data">
+        Correo Destinatario: <input type="text" name="destino" id="">
+        <br><br>
+        Asunto: <input type="text" name="asunto" id="">
+        <br><br>
+        Mensaje: <textarea name="mensaje" id=""></textarea>
+        <br><br>
+        Archivos adjuntos: <input type="file" name="attachments[]" multiple>
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
