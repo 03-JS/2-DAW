@@ -16,6 +16,5 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(error => {
                 alert(error);
             });
-        window.location.href = "./home.html";
     });
 });
