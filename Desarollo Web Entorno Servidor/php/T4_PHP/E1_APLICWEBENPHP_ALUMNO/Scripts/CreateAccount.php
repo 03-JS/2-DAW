@@ -18,8 +18,8 @@ if (!$link) {
     ]);
 } else {
     $user = $_POST["username"];
-    $passwd = $_POST["password"];
-    $imagePath = __DIR__ . "../User Media/$user-pfp" . pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    $passwd = $_POST["passwd"];
+    $imagePath = "../User Media/profile-pictures/$user-pfp." . pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
     
     // Store the users profile image in the server
     move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
@@ -27,7 +27,7 @@ if (!$link) {
     // Add user
     $query = "INSERT INTO users "
                   . "(username, password, picture_path) "
-                  . "VALUES ($user, $passwd, $imagePath)";
+                  . "VALUES ('" . $user . "', '" . $passwd . "', '" . $imagePath . "')";
     mysqli_query($link, $query);
     echo json_encode([
         'query' => $query,

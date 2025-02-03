@@ -15,7 +15,7 @@ $model  = $_POST["currentModel"];
 $prompt = $_POST["prompt"];
 $user   = $_SESSION["username"];
 
-// Insert user prompt into DB
+// Insert user message into DB
 $query = "INSERT INTO messages "
     . "(content, username, session_ID) "
     . "VALUES ($content, $user, $id)";
