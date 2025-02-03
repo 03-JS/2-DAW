@@ -24,7 +24,8 @@ if (!$link) {
     $num_filas = mysqli_num_rows($result);
     echo json_encode([
         'query' => $query,
-        'success' => $num_filas > 0
+        'success' => $num_filas > 0,
+        'status' => mysqli_errno($link)
     ]);
 
     if ($num_filas > 0) {

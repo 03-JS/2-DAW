@@ -16,7 +16,7 @@ $prompt = $_POST["prompt"];
 $user   = $_SESSION["username"];
 
 // Insert user message into DB
-$query = "INSERT INTO messages "
+$query = "INSERT INTO Messages "
     . "(content, username, session_ID) "
     . "VALUES ($content, $user, $id)";
 mysqli_query($link, $query);
@@ -41,7 +41,8 @@ if ($output === "") {
         'model'   => $model,
         'prompt'  => $prompt,
     ]);
-    $query = "INSERT INTO messages "
+    
+    $query = "INSERT INTO Messages "
         . "(content, model, session_ID) "
         . "VALUES ($content, $aiName, $id)";
     mysqli_query($link, $query);

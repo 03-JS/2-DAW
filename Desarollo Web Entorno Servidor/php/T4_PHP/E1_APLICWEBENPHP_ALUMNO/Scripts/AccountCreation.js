@@ -9,15 +9,19 @@ document.addEventListener("DOMContentLoaded", () => {
             method: 'POST',
             body: formData
         })
-            .then(response => console.log(response.text()))
+            .then(response => response.text())
             .then(data => {
+                console.log(data);
                 let json = JSON.parse(data);
-                console.log(json);
                 if (json.success) window.location.href = "./home.php";
-                else alert("No se ha podido crear la cuenta");
+                else ShowError("No se ha podido crear la cuenta");
             })
             .catch(error => {
-                alert(error);
+                ShowError(error);
             });
     });
 });
+
+function ShowError(err) {
+    alert(err);
+}

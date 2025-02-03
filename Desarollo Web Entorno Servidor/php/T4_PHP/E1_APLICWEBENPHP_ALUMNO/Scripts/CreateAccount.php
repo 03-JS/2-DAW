@@ -19,9 +19,10 @@ if (!$link) {
 } else {
     $user = $_POST["username"];
     $passwd = $_POST["passwd"];
-    $imagePath = "../User Media/profile-pictures/$user-pfp." . pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    $imagePath = "../User Media/$user/profile-pictures/$user-pfp." . pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
     
     // Store the users profile image in the server
+    mkdir("../User Media/$user/profile-pictures");
     move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
 
     // Add user
@@ -31,7 +32,8 @@ if (!$link) {
     mysqli_query($link, $query);
     echo json_encode([
         'query' => $query,
-        'success' => mysqli_affected_rows($link) != -1
+        'success' => mysqli_affected_rows($link) != -1,
+        'status' => mysqli_errno($link)
     ]);
 
     if (mysqli_affected_rows($link) != -1) {
