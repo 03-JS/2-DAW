@@ -16,9 +16,7 @@ $prompt = $_POST["prompt"];
 $user   = $_SESSION["username"];
 
 // Insert user message into DB
-$query = "INSERT INTO Messages "
-    . "(content, username, session_ID) "
-    . "VALUES ($content, $user, $id)";
+$query = "INSERT INTO Messages (content, username, session_ID) VALUES ('" . $prompt . "', '" . $user . "', '" . $_SESSION["id"] . "')";
 mysqli_query($link, $query);
 
 // Execute Python script
@@ -42,9 +40,7 @@ if ($output === "") {
         'prompt'  => $prompt,
     ]);
     
-    $query = "INSERT INTO Messages "
-        . "(content, model, session_ID) "
-        . "VALUES ($content, $aiName, $id)";
+    $query = "INSERT INTO Messages (content, model, session_ID) VALUES ('" . $content . "', '" . $aiName . "', '" . $_SESSION["id"] . "')";
     mysqli_query($link, $query);
 }
 

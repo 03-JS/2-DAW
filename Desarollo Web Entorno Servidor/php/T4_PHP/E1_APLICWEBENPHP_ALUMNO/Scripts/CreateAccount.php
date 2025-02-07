@@ -22,7 +22,7 @@ if (!$link) {
     $imagePath = "../User Media/$user/profile-pictures/$user-pfp." . pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
     
     // Store the users profile image in the server
-    mkdir("../User Media/$user/profile-pictures");
+    mkdir("../User Media/$user/profile-pictures", 0777, true);
     move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
 
     // Add user
@@ -33,7 +33,8 @@ if (!$link) {
     echo json_encode([
         'query' => $query,
         'success' => mysqli_affected_rows($link) != -1,
-        'status' => mysqli_errno($link)
+        'status' => mysqli_errno($link),
+        "imagePath" => $imagePath
     ]);
 
     if (mysqli_affected_rows($link) != -1) {
