@@ -19,14 +19,16 @@ $time     = date("h:i:s");
 $filename = "Conversation-$date-$time.txt";
 $content = "";
 
-$query  = 'SELECT content FROM Messages WHERE session_ID=' . '"' . $_SESSION["id"] . '"';
+$query  = 'SELECT * FROM Messages WHERE session_ID=' . '"' . $_SESSION["id"] . '"';
 $result = mysqli_query($link, $query);
 
-$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 // Recorro y visualizo el array de filas
-foreach ($rows as $current_row) {
-    $content .= $current_row;
+while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+    if (is_null($row["username"])) {
+        $content .= $row["model"] . ": " . $row["content"] . PHP_EOL;
+    } else {
+        $content .= $row["username"] . ": " . $row["content"] . PHP_EOL;
+    }
 }
 
 // Set headers to force download
