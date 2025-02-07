@@ -102,9 +102,10 @@ function SendDataToServer(event) {
     })
         .then(response => response.text())
         .then(data => {
+            console.log(data);
             // Display LLM message
             let json = JSON.parse(data);
-            console.log(json);
+            // console.log(json);
             aiMessage.classList.remove("placeholder");
             if (json.success) {
                 aiMessage.innerHTML = `<md-block><b>${aiName}</b>:<br>${json.output}</md-block>`;

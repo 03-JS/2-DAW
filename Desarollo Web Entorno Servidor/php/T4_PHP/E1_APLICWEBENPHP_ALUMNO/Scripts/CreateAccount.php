@@ -33,7 +33,8 @@ if (!$link) {
     echo json_encode([
         'query' => $query,
         'success' => mysqli_affected_rows($link) != -1,
-        'status' => mysqli_errno($link)
+        'status' => mysqli_errno($link),
+        "imagePath" => $imagePath
     ]);
 
     if (mysqli_affected_rows($link) != -1) {
