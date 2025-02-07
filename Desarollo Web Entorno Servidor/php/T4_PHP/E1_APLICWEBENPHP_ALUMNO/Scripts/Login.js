@@ -8,15 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
             method: 'POST',
             body: formData
         })
-            .then(response => response.json())
+            .then(response => response.text())
             .then(data => {
-                if (data.success) window.location.href = "../home.php";
-                else alert("Datos incorrectos");
+                let json = JSON.parse(data);
+                if (json.success) window.location.href = "../home.php";
+                else ShowError("Datos incorrectos");
             })
             .catch(error => {
-                alert(error);
+                ShowError(error);
             });
     });
 
     createAccButton.addEventListener("click", () => window.location.href = "./create_account.html");
 });
+
+function ShowError(err) {
+    alert(err);
+}

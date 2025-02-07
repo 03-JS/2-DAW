@@ -40,7 +40,7 @@ $folderPath = "../User Media/" . $_SESSION["username"] . "/saved-conversations";
 
 // Save conversation file in the server
 if (!file_exists($folderPath)) {
-    mkdir($folderPath);
+    mkdir($folderPath, 0777, true);
 }
 
 $file = fopen("$folderPath/$filename", "w");
