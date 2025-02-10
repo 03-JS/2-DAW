@@ -12,6 +12,6 @@ async function GetData() {
             pfp.src = json.src;
         })
         .catch(error => {
-            console.log(error);
+            console.error(error);
         });
 }
