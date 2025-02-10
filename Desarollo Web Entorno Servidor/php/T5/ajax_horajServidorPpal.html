@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hora en el servidor</title>
+    <meta charset="UTF-8">
+
+    <script>
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("hora").innerHTML = "Hora Actual en el servidor: " + this.responseText;
+                }
+            };
+            xhttp.open("GET", "ajax_horaServidor.php", true); // Cambiado a 'true' para asincrónico
+            xhttp.send();
+        }
+
+        setInterval(loadDoc, 5000); // Actualiza cada 5 segundos
+
+    </script>
+</head>
+
+<body>
+    <h2>Hora en servidor</h2>
+    <section id="hora">Atento a la hora</section>
+
+    <script>
+        loadDoc(); // Carga la hora inicial al cargar la página
+    </script>
+
+</body>
+
+</html>

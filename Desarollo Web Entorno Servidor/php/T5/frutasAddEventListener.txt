@@ -1,0 +1,11 @@
+<ol>
+    <li>Frutas:
+        <ul>
+            <li>Manzana</li>
+            <li>Naranja</li>
+            <li>Melón</li>
+        </ul>
+    </li>
+    <li>Legumbres</li>
+    <li>Cereales</li>
+</ol>

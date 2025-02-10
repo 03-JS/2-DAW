@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+include_once "./Scripts/SessionID.php";
 
 if (!isset($_SESSION["username"])) {
     header("Location: ./index.html");

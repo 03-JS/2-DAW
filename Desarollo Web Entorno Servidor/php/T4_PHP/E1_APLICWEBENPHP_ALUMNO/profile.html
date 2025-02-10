@@ -15,50 +15,22 @@
     </header>
     <main>
         <div class="panel">
-            <div id="pfpContainer">
+            <label for="upload" id="pfpContainer">
                 <img src="./Media/Pictures/chibi_opera.png" id="pfp">
                 <span>Subir foto de perfil</span>
-            </div>
-            <!-- <button id="uploadPfp">Subir foto de perfil</button> -->
+            </label>
+            <input hidden type="file" id="upload" accept="image/png, image/jpeg">
             <div id="middleRow">
                 <span>Nombre de usuario</span>
                 <input type="text" name="username" id="username" value="JS03">
                 <span>Contraseña</span>
                 <input type="password" name="passwd" id="passwd" value="Password">
             </div>
-            <span>Conversaciones guardadas recientemente</span>
-            <div class="grid">
+            <span class="hidden">Conversaciones guardadas recientemente</span>
+            <div class="hidden grid">
                 <div class="file">
                     <img src="./Media/Pictures/file.png" alt="">
                     <span>Conversación 1</span>
-                </div>
-                <div class="file">
-                    <img src="./Media/Pictures/file.png" alt="">
-                    <span>Conversación 2</span>
-                </div>
-                <div class="file">
-                    <img src="./Media/Pictures/file.png" alt="">
-                    <span>Conversación 3</span>
-                </div>
-                <div class="file">
-                    <img src="./Media/Pictures/file.png" alt="">
-                    <span>Conversación 4</span>
-                </div>
-                <div class="file">
-                    <img src="./Media/Pictures/file.png" alt="">
-                    <span>Conversación 5</span>
-                </div>
-                <div class="file">
-                    <img src="./Media/Pictures/file.png" alt="">
-                    <span>Conversación 6</span>
-                </div>
-                <div class="file">
-                    <img src="./Media/Pictures/file.png" alt="">
-                    <span>Conversación 7</span>
-                </div>
-                <div class="file">
-                    <img src="./Media/Pictures/file.png" alt="">
-                    <span>Conversación 8</span>
                 </div>
             </div>
         </div>

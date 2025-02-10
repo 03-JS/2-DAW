@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h2>Parsing a JSON Associative Array</h2>
+    <p>Displaying multiple user details.</p>
+    <p id="demo"></p>
+
+    <script>
+        // JSON con un array de objetos (array asociativo)
+        const jsonText = '[{ "name": "John", "age": 30, "city": "New York" }, { "name": "John2", "age": 40, "city": "Illinois" }]';
+
+        // Convertimos el JSON en un array de objetos JavaScript
+        const people = JSON.parse(jsonText);
+
+        // Construimos la salida en formato requerido
+        let salida = "";
+        for (let i = 0; i < people.length; i++) {
+            salida += `Name: ${people[i].name}, 
+                   Age: ${people[i].age}, 
+                   City: ${people[i].city}<br>`;
+        }
+
+        // Mostramos la salida en la página
+        document.getElementById("demo").innerHTML = salida;
+    </script>
+
+</body>
+
+</html>

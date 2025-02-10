@@ -5,33 +5,27 @@ module.exports = app => {
     // Creamos las diferentes rutas y métodos para poder realizar las diferentes acciones.
     /*************************** GET *******************************/
   
-    //Devuelve todos los usuarios
+    // Devuelve todos los usuarios
     app.get("/usuarios", usuarios.buscarTodos);
   
-    //Devuelve un usuario por ID
+    // Devuelve un usuario por ID
     app.get("/usuarios/:usuarioId", usuarios.buscarPorID);
   
     /*************************** POST *******************************/
 
-    //Devuelve todos los usuarios
-    // app.post("/usuarios", usuarios.buscarTodos);
-  
-    //Devuelve un usuario por ID
-    // app.post("/usuarios/:usuarioId", usuarios.buscarPorID);
+    // Inserta un usuario
+    app.post("/usuarios/insert", usuarios.insertarUsuario);
 
     /*************************** PUT *******************************/
 
-    //Devuelve todos los usuarios
+    // Devuelve todos los usuarios
     // app.get("/usuarios", usuarios.buscarTodos);
   
-    //Devuelve un usuario por ID
+    // Devuelve un usuario por ID
     // app.get("/usuarios/:usuarioId", usuarios.buscarPorID);
 
     /*************************** DELETE *******************************/
 
-    //Devuelve todos los usuarios
-    // app.get("/usuarios", usuarios.buscarTodos);
-  
-    //Devuelve un usuario por ID
-    // app.get("/usuarios/:usuarioId", usuarios.buscarPorID);
+    // Devuelve todos los usuarios
+    app.get("/usuarios/delete/:usuarioId", usuarios.borrarUsuario);
 };

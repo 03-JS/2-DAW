@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.text())
             .then(data => {
                 let json = JSON.parse(data);
-                if (json.success) window.location.href = "../home.php";
+                if (json.success) window.location.href = "./home.php";
                 else ShowError("Datos incorrectos");
             })
             .catch(error => {

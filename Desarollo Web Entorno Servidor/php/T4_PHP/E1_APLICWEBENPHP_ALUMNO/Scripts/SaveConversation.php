@@ -14,9 +14,9 @@ $password = '';
 $database = 'chatbot_playground';
 $link     = mysqli_connect($hostname, $username, $password, $database);
 
-$date     = date("Y/m/d");
-$time     = date("h:i:s");
-$filename = "Conversation-$date-$time.txt";
+$date     = date("Y-m-d");
+$time     = date("h-i-s");
+$filename = "Conversation-$date-$time.md";
 $content = "";
 
 $query  = 'SELECT * FROM Messages WHERE session_ID=' . '"' . $_SESSION["id"] . '"';
@@ -27,7 +27,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     if (is_null($row["username"])) {
         $content .= $row["model"] . ": " . $row["content"] . PHP_EOL;
     } else {
-        $content .= $row["username"] . ": " . $row["content"] . PHP_EOL;
+        $content .= $row["username"] . ": " . $row["content"] . PHP_EOL . PHP_EOL;
     }
 }
 

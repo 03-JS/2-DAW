@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo AJAX PHP</title>
+    <script>
+        function filtra(str) {
+            if (str.length == 0) {
+                document.getElementById("resultado").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("resultado").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "ajax_arrayDatos.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="text-center">
+            <h3>Ejemplo AJAX con PHP</h3>
+        </header>
+        <p class="lead">Autocompletado de un campo</p>
+        <div class="col-lg-6" style="margin-bottom:50px;">
+            <form class="form" method="get">
+                Buscar por nombre:
+                <input type="text" onkeyup="filtra(this.value)">
+            </form>
+            <br /><br />
+            <b>Resultados de la Busqueda</b>
+            <br /><br />
+            <span id="resultado"></span>
+        </div>
+    </div>
+</body>
+
+</html>

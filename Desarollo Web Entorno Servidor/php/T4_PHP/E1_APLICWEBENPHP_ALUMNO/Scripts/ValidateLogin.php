@@ -1,6 +1,6 @@
 <?php
 
-include_once "./SessionID.php";
+// include_once "./SessionID.php";
 
 // Datos de conexión a la base de datos
 $hostname = 'localhost';

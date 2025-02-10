@@ -20,7 +20,7 @@ Usuario.buscarTodos = (request, result) => {
 
 // Donde en la función anterior teníamos una petición (request) sin datos de entrada, ahora tenemos un usuarioID definido en la ruta.
 Usuario.buscarPorID = (request, result) => {
-    sql.query(`SELECT * FROM usuarios WHERE id_usuario = ${request.params.usuarioId}`, (err, res) => {
+    sql.query(`SELECT * FROM usuarios WHERE idUsuario = ${request.params.usuarioId}`, (err, res) => {
         // Si la respuesta de la query devuelve una longitud de 1 o más valores, mostramos el usuario encontrado.
         console.log(res);
         if (res.length) {
@@ -32,7 +32,7 @@ Usuario.buscarPorID = (request, result) => {
 
 /*************************** POST *******************************/
 Usuario.insertarUsuario = (request, result) => {
-    sql.query("INSERT INTO `usuarios` (`idUsuario`, `nombre`, `correo`, `pass`) VALUES ('1', 'Usuario', 'usuario@correo.com', 'passw0rd');", (err, res) => {
+    sql.query(`INSERT INTO usuarios (idUsuario, nombre, correo, pass) VALUES (${request.body.idUsuario}, '${request.body.nombre}', '${request.body.correo}', '${request.body.password}');`, (err, res) => {
         console.log("Usuarios: ", res); // Información que mostramos en la consola donde estamos ejecutando NodeJS (Servidor)
         result.json(res); // Información que enviamos al cliente.
     });
@@ -42,6 +42,23 @@ Usuario.insertarUsuario = (request, result) => {
 
 
 /*************************** DELETE *******************************/
+Usuario.borrarUsuario = (request, result) => {
+    const usuarioId = request.params.usuarioId;
+    sql.query(`DELETE FROM usuarios WHERE idUsuario = ${request.params.usuarioId}`, (err, res) => {
+        if (err) {
+            console.error("Error en la consulta:\n", err);
+            result.status(500).json({ error: err });
+            return;
+        }
 
+        if (res.affectedRows > 0) {
+            console.log(`Usuario con ID ${usuarioId} eliminado`);
+            result.json({ message: `Usuario con ID ${usuarioId} eliminado`});
+        } else {
+            console.log("Usuario no encontrado");
+            result.status(404).json({ message: "Usuario no encontrado" });
+        }
+    });
+}
 
 module.exports = Usuario;

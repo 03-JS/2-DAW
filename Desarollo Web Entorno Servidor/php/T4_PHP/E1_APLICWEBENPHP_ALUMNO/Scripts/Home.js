@@ -60,6 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
     downloadButton.addEventListener("click", () => {
         window.open('./Scripts/SaveConversation.php', '_blank');
     });
+
+    // Redirect to profile page
+    profileIcon.addEventListener("click", () => {
+        window.location.href = "./profile.html";
+    });
 });
 
 function SendDataToServer(event) {
