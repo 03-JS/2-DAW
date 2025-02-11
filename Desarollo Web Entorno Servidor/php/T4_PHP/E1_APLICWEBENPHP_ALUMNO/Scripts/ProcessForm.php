@@ -39,9 +39,9 @@ if ($output === "") {
         'model'   => $model,
         'prompt'  => $prompt,
     ]);
-    
-    $query = "INSERT INTO Messages (content, model, session_ID) VALUES ('" . $content . "', '" . $aiName . "', '" . $_SESSION["id"] . "')";
-    mysqli_query($link, $query);
 }
+
+$query = "INSERT INTO Messages (content, model, session_ID) VALUES ('" . $output . "', '" . $aiName . "', '" . $_SESSION["id"] . "')";
+mysqli_query($link, $query);
 
 ?>

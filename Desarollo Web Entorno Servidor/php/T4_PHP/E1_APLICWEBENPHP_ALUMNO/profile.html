@@ -7,6 +7,7 @@
     <title>Edit profile</title>
     <link rel="stylesheet" href="./Styles/Common.css">
     <link rel="stylesheet" href="./Styles/Profile.css">
+    <script src="./Scripts/EditProfile.js" defer></script>
 </head>
 
 <body>
@@ -16,17 +17,17 @@
     <main>
         <div class="panel">
             <label for="upload" id="pfpContainer">
-                <img src="./Media/Pictures/chibi_opera.png" id="pfp">
+                <img src="" id="pfp">
                 <span>Subir foto de perfil</span>
             </label>
             <input hidden type="file" id="upload" accept="image/png, image/jpeg">
             <div id="middleRow">
                 <span>Nombre de usuario</span>
-                <input type="text" name="username" id="username" value="JS03">
+                <input type="text" name="username" id="username" value="">
                 <span>Contraseña</span>
-                <input type="password" name="passwd" id="passwd" value="Password">
+                <input type="password" name="passwd" id="passwd" value="">
             </div>
-            <span class="hidden">Conversaciones guardadas recientemente</span>
+            <span class="hidden" id="convTitle">Conversaciones guardadas recientemente</span>
             <div class="hidden grid">
                 <div class="file">
                     <img src="./Media/Pictures/file.png" alt="">

@@ -2,6 +2,8 @@
 
 // include_once "./SessionID.php";
 
+session_reset();
+
 // Datos de conexión a la base de datos
 $hostname = 'localhost';
 $username = 'root';

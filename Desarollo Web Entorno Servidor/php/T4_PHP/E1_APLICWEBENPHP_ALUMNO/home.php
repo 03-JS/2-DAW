@@ -16,10 +16,10 @@ if (!isset($_SESSION["username"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chat</title>
-    <script src="./Scripts/Home.js"></script>
+    <script src="./Scripts/Home.js" defer></script>
     <link rel="stylesheet" href="./Styles/Common.css">
     <link rel="stylesheet" href="./Styles/Home.css">
-    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <script type="module" src="https://md-block.verou.me/md-block.js" defer></script>
 </head>
 
 <body>

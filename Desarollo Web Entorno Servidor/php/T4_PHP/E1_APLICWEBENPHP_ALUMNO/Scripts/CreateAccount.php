@@ -2,6 +2,8 @@
 
 // include_once "./SessionID.php";
 
+session_reset();
+
 // Datos de conexión a la base de datos
 $hostname = 'localhost';
 $username = 'root';
@@ -22,7 +24,9 @@ if (!$link) {
     $imagePath = "../User Media/$user/profile-pictures/$user-pfp." . pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
     
     // Store the users profile image in the server
-    mkdir("../User Media/$user/profile-pictures", 0777, true);
+    if (!file_exists("../User Media/$user/profile-pictures")) {
+        mkdir("../User Media/$user/profile-pictures", 0777, true);
+    }
     move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
 
     // Add user
