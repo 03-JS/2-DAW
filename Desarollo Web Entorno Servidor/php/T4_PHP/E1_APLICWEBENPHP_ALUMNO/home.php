@@ -19,7 +19,7 @@ if (!isset($_SESSION["username"])) {
     <script src="./Scripts/Home.js" defer></script>
     <link rel="stylesheet" href="./Styles/Common.css">
     <link rel="stylesheet" href="./Styles/Home.css">
-    <script type="module" src="https://md-block.verou.me/md-block.js" defer></script>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
 </head>
 
 <body>

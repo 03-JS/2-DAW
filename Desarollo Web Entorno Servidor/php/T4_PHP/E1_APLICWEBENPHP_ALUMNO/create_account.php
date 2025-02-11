@@ -1,3 +1,10 @@
+<?php
+
+session_unset();
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +30,7 @@
             <input type="password" id="passwd" autocomplete="off" placeholder="Contraseña">
             <div class="line"></div>
             <label for="upload" id="uploadPfp">Subir foto de perfil</label>
-            <input hidden type="file" id="upload" accept="image/png, image/jpeg">
+            <input hidden type="file" id="upload" accept="image/png, image/jpeg, image/gif">
             <button id="createAccButton">Crear cuenta</button>
         </div>
     </main>

@@ -2,7 +2,7 @@
 
 // include_once "./SessionID.php";
 
-session_reset();
+session_start();
 
 // Datos de conexión a la base de datos
 $hostname = 'localhost';

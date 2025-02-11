@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     createAccButton.addEventListener("click", () => {
+        if (username.value == null || passwd.value == null || upload.files[0] == null) return;
+
         const formData = new FormData();
         formData.append("username", username.value);
         formData.append("passwd", passwd.value);

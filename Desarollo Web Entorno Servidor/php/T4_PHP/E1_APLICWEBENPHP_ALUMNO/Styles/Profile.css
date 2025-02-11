@@ -70,9 +70,9 @@ button:hover {
 }
 
 .grid {
-    display: flex;
-    /* grid-template-columns: auto auto auto auto auto; */
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    /* flex-wrap: wrap; */
     justify-content: center;
     column-gap: 1vw;
     row-gap: 1vh;
@@ -104,6 +104,14 @@ button:hover {
     padding: 1%;
     border-radius: 5px;
     transition: background 0.15s ease-in-out, transform 0.15s ease-in-out;
+    /* width: 40%; */
+
+    span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%; /* Ensure it has a fixed width */
+    }
 }
 
 .file:hover {
@@ -155,6 +163,10 @@ button:hover {
 
 #pfp {
     max-width: 256px;
+    min-width: 256px;
+    max-height: 256px;
+    min-height: 256px;
+    border-radius: 50%;
 }
 
 #uploadPfp {

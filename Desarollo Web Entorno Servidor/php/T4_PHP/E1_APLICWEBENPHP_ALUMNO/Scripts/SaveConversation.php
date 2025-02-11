@@ -25,7 +25,7 @@ $result = mysqli_query($link, $query);
 // Recorro y visualizo el array de filas
 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     if (is_null($row["username"])) {
-        $content .= $row["model"] . ": " . $row["content"] . PHP_EOL;
+        $content .= $row["model"] . ": " . $row["content"];
     } else {
         $content .= $row["username"] . ": " . $row["content"] . PHP_EOL . PHP_EOL;
     }

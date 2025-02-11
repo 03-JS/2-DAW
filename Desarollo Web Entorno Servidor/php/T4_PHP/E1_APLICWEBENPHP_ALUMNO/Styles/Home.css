@@ -1,5 +1,8 @@
 #profileIcon {
     max-width: 52px;
+    min-width: 52px;
+    max-height: 52px;
+    min-height: 52px;
     margin-right: 3%;
     background-color: rgba(20, 20, 20, 1);
     border-radius: 50%;

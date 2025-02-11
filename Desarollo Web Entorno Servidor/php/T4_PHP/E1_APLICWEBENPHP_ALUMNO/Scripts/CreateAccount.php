@@ -2,7 +2,7 @@
 
 // include_once "./SessionID.php";
 
-session_reset();
+session_start();
 
 // Datos de conexión a la base de datos
 $hostname = 'localhost';
@@ -21,11 +21,12 @@ if (!$link) {
 } else {
     $user = $_POST["username"];
     $passwd = $_POST["passwd"];
-    $imagePath = "../User Media/$user/profile-pictures/$user-pfp." . pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
+    $baseDir = "../User Media/$user/profile-pictures";
+    $imagePath = "$baseDir/" . $_FILES["image"]["name"];
     
     // Store the users profile image in the server
-    if (!file_exists("../User Media/$user/profile-pictures")) {
-        mkdir("../User Media/$user/profile-pictures", 0777, true);
+    if (!file_exists($baseDir)) {
+        mkdir($baseDir, 0777, true);
     }
     move_uploaded_file($_FILES["image"]["tmp_name"], $imagePath);
 
@@ -35,10 +36,9 @@ if (!$link) {
                   . "VALUES ('" . $user . "', '" . $passwd . "', '" . $imagePath . "')";
     mysqli_query($link, $query);
     echo json_encode([
-        'query' => $query,
         'success' => mysqli_affected_rows($link) != -1,
         'status' => mysqli_errno($link),
-        "imagePath" => $imagePath
+        'imagePath' => $imagePath
     ]);
 
     if (mysqli_affected_rows($link) != -1) {
