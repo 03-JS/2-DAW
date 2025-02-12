@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create an account</title>
+    <title>Chatbot Playground | Create an account</title>
     <script defer src="./Scripts/AccountCreation.js"></script>
     <link rel="stylesheet" href="./Styles/Common.css">
     <link rel="stylesheet" href="./Styles/Login.css">
