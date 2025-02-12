@@ -29,7 +29,7 @@ if (!isset($_SESSION["username"])) {
     <div id="content">
         <header>
             <h2 id="chatTitle">Chat</h2>
-            <img src="./Media/Pictures/chibi_opera.png" id="profileIcon">
+            <img src="" id="profileIcon">
         </header>
         <main>
             <div id="chat">

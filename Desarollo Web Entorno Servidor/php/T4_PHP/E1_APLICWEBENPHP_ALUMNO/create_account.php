@@ -1,7 +1,7 @@
 <?php
 
-session_unset();
-session_start();
+    session_unset();
+    session_start();
 
 ?>
 
@@ -32,6 +32,7 @@ session_start();
             <label for="upload" id="uploadPfp">Subir foto de perfil</label>
             <input hidden type="file" id="upload" accept="image/png, image/jpeg, image/gif">
             <button id="createAccButton">Crear cuenta</button>
+            <span id="errorText"></span>
         </div>
     </main>
 </body>

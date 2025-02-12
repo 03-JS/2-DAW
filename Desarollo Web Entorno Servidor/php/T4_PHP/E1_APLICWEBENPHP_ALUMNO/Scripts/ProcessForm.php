@@ -29,7 +29,7 @@ if ($output === "") {
     http_response_code(500); // Server error
     echo json_encode([
         'success' => false,
-        'message' => 'Error executing Python script',
+        'message' => 'Error executing Python script'
     ]);
     exit;
 } else {
@@ -37,7 +37,7 @@ if ($output === "") {
         'success' => true,
         'output'  => $content,
         'model'   => $model,
-        'prompt'  => $prompt,
+        'prompt'  => $prompt
     ]);
 }
 

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     createAccButton.addEventListener("click", () => {
-        if (username.value == null || passwd.value == null || upload.files[0] == null) return;
+        // if (username.value == null || passwd.value == null || upload.files[0] == null) return;
 
         const formData = new FormData();
         formData.append("username", username.value);
@@ -16,14 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(data);
                 let json = JSON.parse(data);
                 if (json.success) window.location.href = "./home.php";
-                else ShowError("No se ha podido crear la cuenta");
+                else ShowError("No se ha podido crear la cuenta. Rellene todos los campos");
             })
-            .catch(error => {
-                ShowError(error);
-            });
+            .catch(error => ShowError("La cuenta ya existe"));
     });
 });
 
 function ShowError(err) {
-    alert(err);
+    errorText.innerHTML = err;
 }

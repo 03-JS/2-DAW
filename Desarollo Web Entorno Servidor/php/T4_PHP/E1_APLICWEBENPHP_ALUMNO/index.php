@@ -1,6 +1,7 @@
 <?php
 
-session_reset();
+    session_unset();
+    session_start();
 
 ?>
 
@@ -30,6 +31,7 @@ session_reset();
                 <button id="loginButton">Inicia sesión</button>
                 <button id="createAccButton">Crear cuenta</button>
             </div>
+            <span id="errorText"></span>
         </div>
     </main>
 </body>

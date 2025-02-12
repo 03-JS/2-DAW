@@ -72,3 +72,11 @@ button:hover {
     align-items: center;
     justify-content: center;
 }
+
+#errorText {
+    color: red;
+    position: absolute;
+    bottom: 5%;
+    text-align: center;
+    font-size: small;
+}

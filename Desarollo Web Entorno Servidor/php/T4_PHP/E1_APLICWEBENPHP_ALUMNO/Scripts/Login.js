@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(data => {
                 let json = JSON.parse(data);
                 if (json.success) window.location.href = "./home.php";
-                else ShowError("Datos incorrectos");
+                else ShowError("No se ha podido iniciar sesión");
             })
             .catch(error => {
                 ShowError(error);
@@ -23,5 +23,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function ShowError(err) {
-    alert(err);
+    errorText.innerHTML = err;
 }

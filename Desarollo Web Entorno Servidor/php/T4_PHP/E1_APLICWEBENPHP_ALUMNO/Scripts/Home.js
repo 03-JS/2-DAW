@@ -65,6 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
     profileIcon.addEventListener("click", () => {
         window.location.href = "./profile.html";
     });
+
+    // Load profile picture
+    fetch('./Scripts/GetUserData.php', {})
+        .then(response => response.text())
+        .then(data => {
+            let json = JSON.parse(data);
+            profileIcon.src = json.src.substring(1);
+        })
+        .catch(error => console.error(error));
 });
 
 function SendDataToServer(event) {
