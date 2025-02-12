@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     await GetData();
-    back.addEventListener("click", () => window.location.href = "./home.php");
+    back.addEventListener("click", () => window.history.back());
     save.addEventListener("click", () => {
         if (username.value == null || passwd.value == null || save.classList.contains("greyed-out")) return;
 
