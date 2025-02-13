@@ -25,13 +25,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         .catch(error => console.error(error));
     });
     del.addEventListener("click", () => {
-        fetch('./Scripts/GetUserData.php', {})
+        fetch('./Scripts/RemoveAccount.php', {})
         .then(response => response.text())
         .then(data => {
+            console.log(data);
             let json = JSON.parse(data);
-            if (json.success) {
-                
-            }
+            if (json.success) window.location.href = "./index.php";
         })
         .catch(error => console.error(error));
     });

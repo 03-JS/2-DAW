@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Redirect to profile page
     profileIcon.addEventListener("click", () => {
-        window.location.href = "./profile.html";
+        window.location.href = "./profile.php";
     });
 
     // Load profile picture

@@ -41,7 +41,7 @@ if ($output === "") {
     ]);
 }
 
-$query = "INSERT INTO Messages (content, model, session_ID) VALUES ('" . $output . "', '" . $aiName . "', '" . $_SESSION["id"] . "')";
+$query = "INSERT INTO Messages (content, model, username, session_ID) VALUES ('" . $output . "', '" . $aiName . "', '" . $_SESSION["username"] . "', '" . $_SESSION["id"] . "')";
 mysqli_query($link, $query);
 
 ?>
