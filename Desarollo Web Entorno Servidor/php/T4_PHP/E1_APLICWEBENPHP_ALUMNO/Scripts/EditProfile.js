@@ -24,6 +24,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         })
         .catch(error => console.error(error));
     });
+    del.addEventListener("click", () => {
+        fetch('./Scripts/GetUserData.php', {})
+        .then(response => response.text())
+        .then(data => {
+            let json = JSON.parse(data);
+            if (json.success) {
+                
+            }
+        })
+        .catch(error => console.error(error));
+    });
+
     username.addEventListener("input", (event) => UpdateSaveButton(event.target));
     passwd.addEventListener("input", (event) => UpdateSaveButton(event.target));
     upload.addEventListener("input", () => {

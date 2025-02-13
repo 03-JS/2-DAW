@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["username"])) {
+    header("Location: ./index.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,14 +39,14 @@
                 <input type="password" name="passwd" id="passwd" value="">
             </div>
             <span class="hidden" id="convTitle">Conversaciones guardadas recientemente</span>
-            <div class="hidden grid">
-            </div>
+            <div class="hidden grid"></div>
         </div>
     </main>
     <footer>
         <div class="row" id="bottomRow">
             <button id="back">Volver</button>
             <button id="save" class="greyed-out">Guardar cambios</button>
+            <button id="del">Eliminar cuenta</button>
         </div>
     </footer>
 </body>

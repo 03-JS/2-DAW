@@ -1,6 +1,5 @@
 body {
     flex-direction: column;
-    /* max-height: 100vh; */
 }
 
 header {
@@ -38,7 +37,7 @@ button {
     height: 4vh;
     border: none;
     border-radius: 5px;
-    transition: background 0.15s ease-in-out, color 0.15s ease-in-out, border 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
 }
 
 button:hover {
@@ -64,7 +63,7 @@ button:hover {
 
 .row {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     align-items: center;
     column-gap: 2vw;
 }
@@ -130,7 +129,7 @@ button:hover {
     margin-bottom: 5%;
 }
 
-#save {
+#save, #del {
     width: 7vw;
 }
 
@@ -169,6 +168,14 @@ button:hover {
     border-radius: 50%;
 }
 
-#uploadPfp {
-    width: 90%;
+#del {
+    background-color: rgba(20, 20, 20, 1);
+    color: red;
+    border: 1px solid red;
+}
+
+#del:hover {
+    color: white;
+    background-color: red;
+    border: none;
 }
