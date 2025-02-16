@@ -15,7 +15,8 @@ $user    = $_POST["username"];
 $baseImgDir  = "../User Media/$user/profile-pictures";
 $imagePath   = "";
 
-rename("C:/Users/porta/Documents/VS Code Projects/GitHub/DAW/2-DAW/Desarollo Web Entorno Servidor/php/T4_PHP/E1_APLICWEBENPHP_ALUMNO/User Media/$oldUser", "C:/Users/porta/Documents/VS Code Projects/GitHub/DAW/2-DAW/Desarollo Web Entorno Servidor/php/T4_PHP/E1_APLICWEBENPHP_ALUMNO/User Media/$user");
+// rename("C:/Users/porta/Documents/VS Code Projects/GitHub/DAW/2-DAW/Desarollo Web Entorno Servidor/php/T4_PHP/E1_APLICWEBENPHP_ALUMNO/User Media/$oldUser", "C:/Users/porta/Documents/VS Code Projects/GitHub/DAW/2-DAW/Desarollo Web Entorno Servidor/php/T4_PHP/E1_APLICWEBENPHP_ALUMNO/User Media/$user");
+rename("D:/Documentos/GitHub/Repos/DAW/2-DAW/Desarollo Web Entorno Servidor/php/T4_PHP/E1_APLICWEBENPHP_ALUMNO/User Media/$oldUser", "D:/Documentos/GitHub/Repos/DAW/2-DAW/Desarollo Web Entorno Servidor/php/T4_PHP/E1_APLICWEBENPHP_ALUMNO/User Media/$user");
 
 if ($_FILES != null) {
     if (file_exists("$baseImgDir/" . $_FILES["image"]["name"])) {
