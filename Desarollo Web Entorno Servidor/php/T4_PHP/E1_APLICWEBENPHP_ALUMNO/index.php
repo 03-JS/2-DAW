@@ -35,6 +35,9 @@
             <span id="errorText"></span>
         </div>
     </main>
+    <footer>
+        <h2>Inicia sesión para interactuar con multitud de modelos IA, comparar respuestas, y explorar el poder de la Inteligencia Artificial generativa</h2>
+    </footer>
 </body>
 
 </html>

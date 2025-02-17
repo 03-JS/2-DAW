@@ -16,7 +16,7 @@ if (!isset($_SESSION["username"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keyword" content="ai, chat, chatbot, testing, llm, artifical intelligence, language models, hugging face">
-    <meta name="description" content="Chatbot Playground lets you interact with multiple AI models, compare responses, and explore the power of LLMs. Try different chatbots in one place!">
+    <meta name="description" content="Chatbot Playground te permite interactuar con multitud de modelos IA, comparar respuestas, y explorar el poder de los grandes modelos de lenguaje. ¡Prueba chatbots diferentes en un solo sitio!">
     <title>Chatbot Playground</title>
     <script src="./Scripts/Home.js" defer></script>
     <link rel="stylesheet" href="./Styles/Common.css">
