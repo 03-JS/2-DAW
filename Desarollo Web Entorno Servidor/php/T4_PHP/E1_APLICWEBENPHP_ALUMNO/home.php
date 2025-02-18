@@ -40,7 +40,7 @@
             <input type="range" name="temp" id="temp" min="0" max="2" step="0.1">
         </div>
         <div class="side-row">
-            <label for="maxTokens">Máximo de Tokens:</label>
+            <span>Máximo de Tokens:</span>
             <input type="text" name="maxTokens" id="maxTokens" value="2048">
         </div>
     </div>
