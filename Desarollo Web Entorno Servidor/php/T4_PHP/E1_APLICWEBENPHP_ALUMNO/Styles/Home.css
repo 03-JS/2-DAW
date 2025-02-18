@@ -41,6 +41,8 @@
 
 .side-row {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 1vh;
     justify-content: space-between;
     align-items: baseline;
     width: 80%;
