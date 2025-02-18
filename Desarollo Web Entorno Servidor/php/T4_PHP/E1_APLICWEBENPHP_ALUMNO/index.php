@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="icon" type="image/x-icon" href="./Media/Pictures/ai.png">
     <title>Log in - Chatbot Playground</title>
     <link rel="stylesheet" href="./Styles/Common.css">
     <link rel="stylesheet" href="./Styles/Login.css">
