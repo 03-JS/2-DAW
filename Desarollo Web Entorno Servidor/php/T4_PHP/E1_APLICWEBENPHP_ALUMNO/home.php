@@ -1,11 +1,11 @@
 <?php
 
-include_once "./Scripts/SessionID.php";
+    include_once "./Scripts/SessionID.php";
 
-if (!isset($_SESSION["username"])) {
-    header("Location: ./index.php");
-    exit;
-}
+    if (! isset($_SESSION["username"])) {
+        header("Location: ./index.php");
+        exit;
+    }
 
 ?>
 
@@ -27,7 +27,22 @@ if (!isset($_SESSION["username"])) {
 
 <body>
     <div id="sideContent">
-        <h2>Modelos IA</h2>
+        <h2>Panel de control</h2>
+        <div class="line"></div>
+        <div class="side-row">
+            <label for="userModels">Modelo:</label>
+            <select name="userModels" id="userModels">
+            </select>
+        </div>
+        <div id="tempSection">
+            <label for="temp">Temperatura</label>
+            <input type="text" name="tempValue" id="tempValue" value="1">
+            <input type="range" name="temp" id="temp" min="0" max="2" step="0.1">
+        </div>
+        <div class="side-row">
+            <label for="maxTokens">Máximo de Tokens:</label>
+            <input type="text" name="maxTokens" id="maxTokens" value="2048">
+        </div>
     </div>
     <div id="content">
         <header>

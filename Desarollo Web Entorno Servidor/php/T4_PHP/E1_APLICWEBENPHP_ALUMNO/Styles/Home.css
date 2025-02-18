@@ -25,7 +25,112 @@
     height: 100%;
     width: 14vw;
     margin-right: 3%;
+    row-gap: 3vh;
+
+    h1, h2, h3 {
+        margin-bottom: 0;
+    }
+
+    .line {
+        /* margin-top: 19.92px; */
+        /* margin-bottom: 19.92px; */
+        width: 80%;
+    }
+
+}
+
+.side-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    width: 80%;
+}
+
+#userModels {
+    text-align: center;
+    background-color: rgba(65, 65, 65, 1);
+    border: none;
+    color: #d3d3d3;
+    border-radius: 5px;
+    width: 45%;
+    padding: 1%;
+}
+
+.side-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 80%;
     row-gap: 1vh;
+
+    input {
+        width: 100%;
+    }
+}
+
+#tempSection {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
+    row-gap: 1vh;
+}
+
+#tempValue {
+    width: 12%;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background: transparent;
+    transition: all 0.15s ease-in-out;
+}
+
+#tempValue:hover, #tempValue:focus {
+    border: 1px solid rgba(65, 65, 65, 1);
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 100%;
+    height: 1vh;
+    background-image: linear-gradient(120deg, #0000EA 0%, #FF0024 100%);
+    border-radius: 5px;
+}
+
+input[type="range"]:hover {
+    cursor: pointer;
+}
+
+::-webkit-slider-thumb, ::-moz-range-thumb {
+    /* appearance: none; */
+    border-radius: 100%;
+    border: none;
+    background-color: #d3d3d3;
+    transition: all 0.1s ease-in-out;
+}
+
+::-webkit-slider-thumb:hover {
+    scale: 1.2;
+}
+
+::-moz-range-thumb:hover, ::-moz-range-thumb:focus {
+    scale: 1.2;
+}
+
+#maxTokens {
+    width: 25%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: all 0.15s ease-in-out;
+    text-align: center;
+}
+
+#maxTokens:hover, #maxTokens:focus {
+    border: 1px solid rgba(65, 65, 65, 1);
 }
 
 .item {

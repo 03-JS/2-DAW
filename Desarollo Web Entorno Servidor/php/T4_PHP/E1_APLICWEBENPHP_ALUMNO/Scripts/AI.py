@@ -26,9 +26,11 @@ messages = [
 completion = client.chat.completions.create(
     model=sys.argv[1],
     # model="NousResearch/Hermes-3-Llama-3.2-3B",
-    messages=messages,
-    max_tokens=4000,
-    temperature=0.3
+    max_tokens=2048,
+    temperature=1,
+    top_p=1,
+    frequency_penalty=0,
+    presence_penalty=0
 )
 
 print(completion.choices[0].message.content)

@@ -17,16 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // AI Model selection
     currentModel = models["Phi 3.5 mini"];
     for (const [key, value] of Object.entries(models)) {
-        let item = document.createElement("div");
-        item.classList.add("item");
-        if (value === currentModel) item.classList.add("focused");
-        item.innerHTML = `<img src="./Media/Pictures/ai.png">${key}`;
-        item.addEventListener("click", (event) => {
-            if (awaitingResponse) return;
-            for (const child of sideContent.children) {
-                child.classList.remove("focused");
-            }
-            if (currentModel != models[event.target.textContent]) {
+        let option = document.createElement("option");
+        option.value = key;
+        option.innerText = key;
+        userModels.appendChild(option);
+
+        userModels.addEventListener("change", () => {
+            if (currentModel != models[userModels.value]) {
                 let info = document.createElement("div");
                 info.classList.add("info-message");
                 let leftLine = document.createElement("div");
@@ -34,15 +31,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 let rightLine = document.createElement("div");
                 rightLine.classList.add("line");
                 info.appendChild(leftLine);
-                info.appendChild(document.createTextNode(`Modelo cambiado a ${event.target.textContent}`));
+                info.appendChild(document.createTextNode(`Modelo cambiado a ${userModels.value}`));
                 info.appendChild(rightLine);
                 chatArea.appendChild(info);
                 chatArea.scrollTop = chatArea.scrollHeight;
             }
-            event.target.classList.add("focused");
-            currentModel = models[event.target.textContent];
+            currentModel = models[userModels.value];
         });
-        sideContent.appendChild(item);
+
+        // let item = document.createElement("div");
+        // item.classList.add("item");
+        // if (value === currentModel) item.classList.add("focused");
+        // item.innerHTML = `<img src="./Media/Pictures/ai.png">${key}`;
+        // item.addEventListener("click", (event) => {
+        //     if (awaitingResponse) return;
+        //     for (const child of sideContent.children) {
+        //         child.classList.remove("focused");
+        //     }
+        //     if (currentModel != models[event.target.textContent]) {
+        //         let info = document.createElement("div");
+        //         info.classList.add("info-message");
+        //         let leftLine = document.createElement("div");
+        //         leftLine.classList.add("line");
+        //         let rightLine = document.createElement("div");
+        //         rightLine.classList.add("line");
+        //         info.appendChild(leftLine);
+        //         info.appendChild(document.createTextNode(`Modelo cambiado a ${event.target.textContent}`));
+        //         info.appendChild(rightLine);
+        //         chatArea.appendChild(info);
+        //         chatArea.scrollTop = chatArea.scrollHeight;
+        //     }
+        //     event.target.classList.add("focused");
+        //     currentModel = models[event.target.textContent];
+        // });
+        // sideContent.appendChild(item);
     }
 
     // Displaying chat messages
