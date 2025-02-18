@@ -10,7 +10,7 @@ if (!isset($_SESSION["username"])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <link rel="icon" type="image/x-icon" href="./Media/Pictures/ai.png">
