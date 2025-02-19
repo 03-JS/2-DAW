@@ -61,27 +61,27 @@
 .side-col {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: flex-start;
     width: 80%;
-    row-gap: 1vh;
+    row-gap: 0.5vh;
 
     input {
         width: 100%;
     }
 }
 
-#tempSection {
+.slider-section {
     display: flex;
     flex-wrap: wrap;
     /* flex-direction: column; */
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 80%;
     row-gap: 1vh;
 }
 
-#tempValue {
+.slider-value {
     width: 12%;
     text-align: center;
     border-radius: 5px;
@@ -90,7 +90,7 @@
     transition: all 0.15s ease-in-out;
 }
 
-#tempValue:hover, #tempValue:focus {
+.slider-value:hover, .slider-value:focus {
     border: 1px solid rgba(65, 65, 65, 1);
 }
 
@@ -114,11 +114,11 @@ input[type="range"]:hover {
     transition: all 0.1s ease-in-out;
 }
 
-::-webkit-slider-thumb:hover {
+::-webkit-slider-thumb:hover, ::-webkit-slider-thumb:active {
     scale: 1.2;
 }
 
-::-moz-range-thumb:hover, ::-moz-range-thumb:focus {
+::-moz-range-thumb:hover, ::-moz-range-thumb:active {
     scale: 1.2;
 }
 
@@ -133,6 +133,34 @@ input[type="range"]:hover {
 
 #maxTokens:hover, #maxTokens:focus {
     border: 1px solid rgba(65, 65, 65, 1);
+}
+
+#apiKey {
+    background-color: rgba(65, 65, 65, 1);
+    border: none;
+    border-radius: 5px;
+    height: 2.5vh;
+    width: 100%;
+    padding: 3%;
+    box-sizing: border-box;
+}
+
+#addModel {
+    color: #d3d3d3;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background: linear-gradient(rgba(20, 20, 20, 1), rgba(20, 20, 20, 1)) padding-box,
+        linear-gradient(140deg, #0000EA 0%, #FF0024 90%) border-box;
+    border-radius: 5px;
+    height: 4vh;
+    width: 80%;
+    transition: all 0.15s ease-in-out;
+}
+
+#addModel:hover {
+    background-image: linear-gradient(120deg, #FF0024 0%, #0000EA 90%);
+    scale: 1.05;
 }
 
 .item {

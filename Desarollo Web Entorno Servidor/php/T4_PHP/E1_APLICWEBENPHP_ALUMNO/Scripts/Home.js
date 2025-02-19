@@ -1,7 +1,7 @@
 let awaitingResponse;
 
 let promptElement;
-let currentModel;
+// let currentModel;
 const models = {
     "Phi 3.5 mini": "microsoft/Phi-3.5-mini-instruct",
     "Zephyr": "HuggingFaceH4/zephyr-7b-beta",
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     promptElement = document.querySelector("#prompt");
 
     // AI Model selection
-    currentModel = models["Phi 3.5 mini"];
+    // currentModel = models["Phi 3.5 mini"];
     for (const [key, value] of Object.entries(models)) {
         let option = document.createElement("option");
         option.value = key;
@@ -23,20 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
         userModels.appendChild(option);
 
         userModels.addEventListener("change", () => {
-            if (currentModel != models[userModels.value]) {
-                let info = document.createElement("div");
-                info.classList.add("info-message");
-                let leftLine = document.createElement("div");
-                leftLine.classList.add("line");
-                let rightLine = document.createElement("div");
-                rightLine.classList.add("line");
-                info.appendChild(leftLine);
-                info.appendChild(document.createTextNode(`Modelo cambiado a ${userModels.value}`));
-                info.appendChild(rightLine);
-                chatArea.appendChild(info);
-                chatArea.scrollTop = chatArea.scrollHeight;
-            }
-            currentModel = models[userModels.value];
+            // if (currentModel != models[userModels.value]) {
+            let info = document.createElement("div");
+            info.classList.add("info-message");
+            let leftLine = document.createElement("div");
+            leftLine.classList.add("line");
+            let rightLine = document.createElement("div");
+            rightLine.classList.add("line");
+            info.appendChild(leftLine);
+            info.appendChild(document.createTextNode(`Modelo cambiado a ${userModels.value}`));
+            info.appendChild(rightLine);
+            chatArea.appendChild(info);
+            chatArea.scrollTop = chatArea.scrollHeight;
+            // }
+            // currentModel = models[userModels.value];
         });
 
         // let item = document.createElement("div");
@@ -104,12 +104,12 @@ function SendDataToServer(event) {
     if (awaitingResponse) return;
     event.preventDefault();
     event.target.style.height = "5vh";
-    let aiName = Object.keys(models).find((key) => models[key] === currentModel);
+    let aiName = Object.keys(models).find((key) => models[key] === models[userModels.value]);
 
     // Create form data
     const formData = new FormData();
     formData.append("modelDisplayName", aiName);
-    formData.append("currentModel", currentModel);
+    formData.append("currentModel", models[userModels.value]);
     formData.append("prompt", promptElement.value.replace(/[\r\n]/g, ''));
 
     // Display message

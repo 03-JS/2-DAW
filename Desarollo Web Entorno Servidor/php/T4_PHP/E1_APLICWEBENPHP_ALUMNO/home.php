@@ -34,15 +34,35 @@
             <select name="userModels" id="userModels">
             </select>
         </div>
-        <div id="tempSection">
+        <div class="slider-section">
             <label for="temp">Temperatura</label>
-            <input type="text" name="tempValue" id="tempValue" value="1">
-            <input type="range" name="temp" id="temp" min="0" max="2" step="0.1">
+            <input type="text" name="tempValue" id="tempValue" class="slider-value" value="1">
+            <input type="range" name="temp" id="temp" min="0" max="2" step="0.1" value="1">
         </div>
         <div class="side-row">
             <span>Máximo de Tokens:</span>
             <input type="text" name="maxTokens" id="maxTokens" value="2048">
         </div>
+        <div class="slider-section">
+            <label for="topP">Top P</label>
+            <input type="text" name="topPValue" id="topPValue" class="slider-value" value="1">
+            <input type="range" name="topP" id="topP" min="0" max="1" step="0.1" value="1">
+        </div>
+        <div class="slider-section">
+            <label for="freqPenalty">Frequency Penalty</label>
+            <input type="text" name="freqPenaltyValue" id="freqPenaltyValue" class="slider-value" value="0">
+            <input type="range" name="freqPenalty" id="freqPenalty" min="0" max="2" step="0.1" value="0">
+        </div>
+        <div class="slider-section">
+            <label for="presPenalty">Presence Penalty</label>
+            <input type="text" name="presPenaltyValue" id="presPenaltyValue" class="slider-value" value="0">
+            <input type="range" name="presPenalty" id="presPenalty" min="0" max="2" step="0.1" value="0">
+        </div>
+        <div class="slider-section">
+            <span>HuggingFace API Key:</span>
+            <input type="password" name="apiKey" id="apiKey" value="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">
+        </div>
+        <button id="addModel">Añade un modelo</button>
     </div>
     <div id="content">
         <header>
