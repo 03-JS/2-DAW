@@ -349,3 +349,126 @@ input[type="range"]:hover {
 #downloadButton {
     background-image: url("../Media/Pictures/download.png");
 }
+
+#blocker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    animation: fade 0.2s forwards;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 0.25;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.75;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1vh;
+    height: 35vh;
+    width: 22vw;
+    background-color: rgba(20, 20, 20, 1);
+    border-radius: 15px;
+    animation: pop 0.2s forwards;
+
+    input {
+        background-color: rgba(40, 40, 40, 1);
+        border-radius: 5px;
+        width: 12vw;
+        height: 4vh;
+        border: 1px solid rgba(40, 40, 40, 1);
+        /* border: none; */
+        /* padding-left: 5%; */
+        text-indent: 5%;
+        transition: border 0.15s ease-in-out;
+    }
+
+    input:hover, input:focus {
+        border: 1px solid #0000EA;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+}
+
+@keyframes pop {
+    0% {
+        scale: 0;
+    }
+
+    25% {
+        scale: 0.25;
+    }
+
+    50% {
+        scale: 0.5;
+    }
+
+    75% {
+        scale: 0.75;
+    }
+
+    100% {
+        scale: 1;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3vw;
+
+    button {
+        width: 5vw;
+        height: 4vh;
+        /* width: 5.5vw; */
+        border: none;
+        border-radius: 5px;
+        margin-top: 15%;
+        transition: background 0.15s ease-in-out, color 0.15s ease-in-out, border 0.15s ease-in-out;
+    }
+}
+
+#add:hover {
+    background: #0000EA;
+    color: white;
+}
+
+#cancel {
+    background-color: rgba(20, 20, 20, 1);
+    color: red;
+    border: 1px solid red;
+}
+
+#cancel:hover {
+    color: white;
+    background-color: red;
+    border: none;
+}

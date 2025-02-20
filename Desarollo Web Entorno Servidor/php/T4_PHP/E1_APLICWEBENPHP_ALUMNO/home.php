@@ -84,6 +84,17 @@
             © 2024/25 - Javier Sarch
         </footer>
     </div>
+    <div id="blocker" class="hidden">
+        <div class="pop-up">
+            <h1>Añade un modelo</h1>
+            <input type="text" id="modelName" placeholder="Nombre">
+            <input type="text" id="modelURL" placeholder="URL">
+            <div class="row">
+                <button class="greyed-out" id="add">Añadir</button>
+                <button id="cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

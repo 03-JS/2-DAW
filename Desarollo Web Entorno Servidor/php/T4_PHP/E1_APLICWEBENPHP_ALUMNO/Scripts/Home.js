@@ -96,6 +96,16 @@ document.addEventListener("DOMContentLoaded", () => {
             profileIcon.src = json.src.substring(1);
         })
         .catch(error => console.error(error));
+
+    /* Sync inputs with sliders */
+    tempValue.addEventListener("input", () => temp.value = tempValue.value);
+    temp.addEventListener("input", () => tempValue.value = temp.value);
+    topPValue.addEventListener("input", () => topP.value = topPValue.value);
+    topP.addEventListener("input", () => topPValue.value = topP.value);
+    freqPenaltyValue.addEventListener("input", () => freqPenalty.value = freqPenaltyValue.value);
+    freqPenalty.addEventListener("input", () => freqPenaltyValue.value = freqPenalty.value);
+    presPenaltyValue.addEventListener("input", () => presPenalty.value = presPenaltyValue.value);
+    presPenalty.addEventListener("input", () => presPenaltyValue.value = presPenalty.value);
 });
 
 function SendDataToServer(event) {

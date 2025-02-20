@@ -77,9 +77,9 @@ code {
 }
 
 .greyed-out:hover {
-    background-color: rgba(50, 50, 50, 1);
-    color: rgba(172, 172, 172, 1);
-    cursor: auto;
+    background-color: rgba(50, 50, 50, 1) !important;
+    color: rgba(172, 172, 172, 1) !important;
+    cursor: auto !important;
 }
 
 #uploadPfp {
