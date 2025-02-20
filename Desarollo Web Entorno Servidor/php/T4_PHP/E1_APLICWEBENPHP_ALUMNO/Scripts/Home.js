@@ -3,12 +3,9 @@ let awaitingResponse;
 let promptElement;
 // let currentModel;
 const models = {
-    "Phi 3.5 mini": "microsoft/Phi-3.5-mini-instruct",
-    "Zephyr": "HuggingFaceH4/zephyr-7b-beta",
-    "Hermes 3": "NousResearch/Hermes-3-Llama-3.2-3B",
-    "Mistral-Nemo": "mistralai/Mistral-Nemo-Instruct-2407",
-    "StarChat2": "HuggingFaceH4/starchat2-15b-v0.1",
-    "Qwen2.5-Coder": "Qwen/Qwen2.5-Coder-32B-Instruct"
+    "Phi 3.5": "microsoft/Phi-3.5-mini-instruct",
+    "Mistral": "mistralai/Mistral-7B-Instruct-v0.3",
+    "SmolLM v2 1.7B": "HuggingFaceTB/SmolLM2-1.7B-Instruct"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,23 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         option.value = key;
         option.innerText = key;
         userModels.appendChild(option);
-
-        userModels.addEventListener("change", () => {
-            // if (currentModel != models[userModels.value]) {
-            let info = document.createElement("div");
-            info.classList.add("info-message");
-            let leftLine = document.createElement("div");
-            leftLine.classList.add("line");
-            let rightLine = document.createElement("div");
-            rightLine.classList.add("line");
-            info.appendChild(leftLine);
-            info.appendChild(document.createTextNode(`Modelo cambiado a ${userModels.value}`));
-            info.appendChild(rightLine);
-            chatArea.appendChild(info);
-            chatArea.scrollTop = chatArea.scrollHeight;
-            // }
-            // currentModel = models[userModels.value];
-        });
 
         // let item = document.createElement("div");
         // item.classList.add("item");
@@ -66,6 +46,21 @@ document.addEventListener("DOMContentLoaded", () => {
         // });
         // sideContent.appendChild(item);
     }
+
+    // Display info message
+    userModels.addEventListener("change", () => {
+        let info = document.createElement("div");
+        info.classList.add("info-message");
+        let leftLine = document.createElement("div");
+        leftLine.classList.add("line");
+        let rightLine = document.createElement("div");
+        rightLine.classList.add("line");
+        info.appendChild(leftLine);
+        info.appendChild(document.createTextNode(`Modelo cambiado a ${userModels.value}`));
+        info.appendChild(rightLine);
+        chatArea.appendChild(info);
+        chatArea.scrollTop = chatArea.scrollHeight;
+    });
 
     // Displaying chat messages
     sendButton.addEventListener("click", SendDataToServer);
@@ -100,12 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
     /* Sync inputs with sliders */
     tempValue.addEventListener("input", () => temp.value = tempValue.value);
     temp.addEventListener("input", () => tempValue.value = temp.value);
+    maxTokensValue.addEventListener("input", () => maxTokens.value = maxTokensValue.value);
+    maxTokens.addEventListener("input", () => maxTokensValue.value = maxTokens.value);
     topPValue.addEventListener("input", () => topP.value = topPValue.value);
     topP.addEventListener("input", () => topPValue.value = topP.value);
     freqPenaltyValue.addEventListener("input", () => freqPenalty.value = freqPenaltyValue.value);
     freqPenalty.addEventListener("input", () => freqPenaltyValue.value = freqPenalty.value);
-    presPenaltyValue.addEventListener("input", () => presPenalty.value = presPenaltyValue.value);
-    presPenalty.addEventListener("input", () => presPenaltyValue.value = presPenalty.value);
+    // presPenaltyValue.addEventListener("input", () => presPenalty.value = presPenaltyValue.value);
+    // presPenalty.addEventListener("input", () => presPenaltyValue.value = presPenalty.value);
 
     // Open model addition window
     addModel.addEventListener("click", () => blocker.classList.remove("hidden"));
@@ -139,6 +136,12 @@ function SendDataToServer(event) {
     formData.append("modelDisplayName", aiName);
     formData.append("currentModel", models[userModels.value]);
     formData.append("prompt", promptElement.value.replace(/[\r\n]/g, ''));
+    formData.append("temperature", temp.value);
+    formData.append("maxTokens", maxTokens.value);
+    formData.append("topP", topP.value);
+    formData.append("freqPenalty", freqPenalty.value);
+    // formData.append("presPenalty", presPenalty.value);
+    formData.append("apiKey", apiKey.value);
 
     // Display message
     let userMessage = document.createElement("div");

@@ -13,6 +13,12 @@ $link = mysqli_connect($hostname, $username, $password, $database);
 $aiName = $_POST["modelDisplayName"];
 $model  = $_POST["currentModel"];
 $prompt = $_POST["prompt"];
+$temp = $_POST["temperature"];
+$maxTokens = $_POST["maxTokens"];
+$topP = $_POST["topP"];
+$freqPenalty = $_POST["freqPenalty"];
+// $presPenalty = $_POST["presPenalty"];
+$apiKey = $_POST["apiKey"];
 $user   = $_SESSION["username"];
 
 // Insert user message into DB
@@ -20,7 +26,8 @@ $query = "INSERT INTO Messages (content, username, session_ID) VALUES ('" . $pro
 mysqli_query($link, $query);
 
 // Execute Python script
-$command = escapeshellcmd(escapeshellarg("../../../../../../2-DAW/.venv/Scripts/python.exe ") . "./AI.py " . escapeshellarg($model) . " " . escapeshellarg($prompt));
+$command = escapeshellcmd(escapeshellarg("../../../../../../2-DAW/.venv/Scripts/python.exe ") . "./AI.py " . escapeshellarg($model) . " " . escapeshellarg($prompt) . " $temp $maxTokens $topP $freqPenalty " . escapeshellarg($apiKey));
+// $command = escapeshellcmd(escapeshellarg("../../../../../../2-DAW/.venv/Scripts/python.exe ") . "./AI.py " . escapeshellarg($model) . " " . escapeshellarg($prompt) . " $temp $maxTokens $topP $freqPenalty $presPenalty " . escapeshellarg($apiKey));
 $output  = shell_exec($command);
 $output  = mb_convert_encoding($output, 'UTF-8', mb_detect_encoding($output, 'UTF-8, ISO-8859-1', true));
 $content = htmlspecialchars($output);
@@ -41,7 +48,7 @@ if ($output === "") {
     ]);
 }
 
-$query = "INSERT INTO Messages (content, model, username, session_ID) VALUES ('" . $output . "', '" . $aiName . "', '" . $_SESSION["username"] . "', '" . $_SESSION["id"] . "')";
+$query = "INSERT INTO Messages (content, model, username, session_ID) VALUES ('" . mysqli_escape_string($link, $output) . "', '" . $aiName . "', '" . $_SESSION["username"] . "', '" . $_SESSION["id"] . "')";
 mysqli_query($link, $query);
 
 ?>

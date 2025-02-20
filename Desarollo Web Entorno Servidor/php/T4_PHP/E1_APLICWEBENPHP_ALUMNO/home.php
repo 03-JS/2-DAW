@@ -39,28 +39,29 @@
             <input type="text" name="tempValue" id="tempValue" class="slider-value" value="1">
             <input type="range" name="temp" id="temp" min="0" max="2" step="0.1" value="1">
         </div>
-        <div class="side-row">
-            <span>Máximo de Tokens:</span>
-            <input type="text" name="maxTokens" id="maxTokens" value="2048">
+        <div class="slider-section">
+            <label for="maxTokens">Máximo de Tokens</label>
+            <input type="text" name="maxTokensValue" id="maxTokensValue" class="slider-value" value="2048">
+            <input type="range" name="maxTokens" id="maxTokens" min="100" max="16000" step="1" value="2048">
         </div>
         <div class="slider-section">
             <label for="topP">Top P</label>
-            <input type="text" name="topPValue" id="topPValue" class="slider-value" value="1">
-            <input type="range" name="topP" id="topP" min="0" max="1" step="0.1" value="1">
+            <input type="text" name="topPValue" id="topPValue" class="slider-value" value="0.99">
+            <input type="range" name="topP" id="topP" min="0.01" max="0.99" step="0.01" value="0.99">
         </div>
         <div class="slider-section">
             <label for="freqPenalty">Frequency Penalty</label>
             <input type="text" name="freqPenaltyValue" id="freqPenaltyValue" class="slider-value" value="0">
             <input type="range" name="freqPenalty" id="freqPenalty" min="0" max="2" step="0.1" value="0">
         </div>
-        <div class="slider-section">
+        <!-- <div class="slider-section">
             <label for="presPenalty">Presence Penalty</label>
             <input type="text" name="presPenaltyValue" id="presPenaltyValue" class="slider-value" value="0">
             <input type="range" name="presPenalty" id="presPenalty" min="0" max="2" step="0.1" value="0">
-        </div>
+        </div> -->
         <div class="slider-section">
             <span>HuggingFace API Key:</span>
-            <input type="password" name="apiKey" id="apiKey" value="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">
+            <input type="password" name="apiKey" id="apiKey" value="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">
         </div>
         <button id="addModel">Añade un modelo</button>
     </div>
