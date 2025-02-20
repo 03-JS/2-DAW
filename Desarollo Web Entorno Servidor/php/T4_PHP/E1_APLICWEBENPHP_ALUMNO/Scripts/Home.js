@@ -106,6 +106,24 @@ document.addEventListener("DOMContentLoaded", () => {
     freqPenalty.addEventListener("input", () => freqPenaltyValue.value = freqPenalty.value);
     presPenaltyValue.addEventListener("input", () => presPenalty.value = presPenaltyValue.value);
     presPenalty.addEventListener("input", () => presPenaltyValue.value = presPenalty.value);
+
+    // Open model addition window
+    addModel.addEventListener("click", () => blocker.classList.remove("hidden"));
+
+    // Enable add button
+    modelName.addEventListener("input", EnableAddButton);
+    modelURL.addEventListener("input", EnableAddButton);
+
+    // Close model addition window
+    add.addEventListener("click", () => {
+        let option = document.createElement("option");
+        option.value = modelName.value;
+        option.innerText = modelName.value;
+        userModels.appendChild(option);
+        models[modelName.value] = modelURL.value;
+        blocker.classList.add("hidden")
+    });
+    cancel.addEventListener("click", () => blocker.classList.add("hidden"));
 });
 
 function SendDataToServer(event) {
@@ -168,4 +186,9 @@ function SendDataToServer(event) {
             awaitingResponse = false;
             console.error('Error:', error);
         });
+}
+
+function EnableAddButton(event) {
+    if (event.target.value != event.target.defaultValue) add.classList.remove("greyed-out");
+    else add.classList.add("greyed-out");
 }

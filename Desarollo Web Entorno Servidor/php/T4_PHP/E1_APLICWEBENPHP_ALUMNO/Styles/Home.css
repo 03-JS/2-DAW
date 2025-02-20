@@ -422,16 +422,8 @@ input[type="range"]:hover {
         scale: 0;
     }
 
-    25% {
-        scale: 0.25;
-    }
-
     50% {
         scale: 0.5;
-    }
-
-    75% {
-        scale: 0.75;
     }
 
     100% {
