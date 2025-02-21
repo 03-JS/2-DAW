@@ -1,0 +1,250 @@
+main {
+    position: absolute;
+    width: 1200px;
+    left: calc(50% - 600px);
+}
+
+
+
+#contenedorPrincipal {
+    width:600px;
+}
+
+h1 {
+    width:100%;
+    text-align:center;
+}
+
+#contenedor {
+    width: 1160px;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+img {
+    width:100%;
+    border-radius: 10px;
+}
+
+.tarjeta {
+    width:250px;
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 10px #888888;
+    border-radius: 10px;
+    padding: 10px;
+    float:left;
+    margin: 10px;
+    transition: all .5s;
+}
+
+.tarjeta:hover {
+    cursor: pointer;
+    box-shadow: 10px 10px 15px #888888;
+    transform: translateY(-5px);
+    transition: all .5s;
+}
+
+h3 {
+    text-align: center;
+}
+.casilla {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color:whitesmoke;
+    box-shadow: 0 0 10px gray;
+    overflow: hidden;
+}
+
+.casilla img {
+    height:90%;
+
+}
+
+#ruleta{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    text-align: center;
+}
+
+#c1 {
+    left: calc(50% - 50px);
+}
+
+#c2 {
+    top: calc(20% - 50px);
+    right: calc(20% - 50px);
+}
+
+
+#c3 {
+    right: 0;
+    top: calc(50% - 50px);
+}
+
+#c4 {
+    bottom: calc(20% - 50px);
+    right: calc(20% - 50px);
+}
+
+#c5 {
+    bottom: 0;
+    left: calc(50% - 50px);
+}
+
+#c6 {
+    bottom: calc(20% - 50px);
+    left: calc(20% - 50px);
+}
+
+#c7 {
+    left: 0;
+    top: calc(50% - 50px);
+}
+
+#c8 {
+    top: calc(20% - 50px);
+    left: calc(20% - 50px);
+}
+
+.seleccionada {
+    box-shadow: 0 0 15px yellowgreen;
+    border: 2px solid darkorange;
+    background-color: bisque;
+}
+#centro {
+    width:360px;
+    height:360px;
+    border:2px solid black;
+    background-color: bisque;
+    border-radius: 50%;
+    box-shadow: 0 0 15px grey;
+    position: absolute;
+    left: calc(50% - 180px);
+    top: calc(50% - 180px);
+    color: white;
+    overflow: hidden;
+}
+
+#centro img {
+    height: 90%;
+}
+
+#contenedorBoton {
+    position:absolute;
+    text-align:center;
+    width: 600px;
+    height: 100px;
+    top: 700px;
+}
+
+button {
+    width: 150px;
+    padding:10px;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+#contadorIntentos {
+    position: absolute;
+    text-align: center;
+    width:600px;
+    top: 750px;
+
+}
+
+.cartel {
+    background-color: black;
+    height: 160px;
+    width: 100%;
+    z-index: 1000;
+    opacity: 0.7;
+    position: absolute;
+    bottom:0;
+    left:0;
+}
+
+#nombre {
+    width: 100%;
+    color: white;
+    position: absolute;
+    bottom: 60px;
+    height:100px;
+    text-align: center;
+    z-index: 2000;
+    font-size: 50px;
+}
+
+#altura {
+    width: 100%;
+    color: lightcoral;
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    text-align: center;
+    z-index: 2000;
+    font-size: 30px;
+}
+
+#equipo {
+    position:absolute;
+    right:0;
+    width:300px;
+}
+.miembro {
+    position: relative;
+    float: left;
+    width: 220px;
+    height: 220px;
+    padding: 10px;
+    margin: 10px;
+    background-color: whitesmoke;
+    box-shadow: inset 5px 5px 15px grey;
+}
+
+.esMiembro {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    color:red;
+    opacity: 0.7;
+    font-size: 180px;
+}
+
+.nombre {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    color: white;
+    box-shadow: 5px 5px 15px grey;
+    opacity: 0.7;
+    text-align: center;
+    font-size: 40px;
+}
+
+.altura {
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    background-color: black;
+    padding:5px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px grey;
+    top: 10px;
+    right: 10px;
+    color: lightcoral;
+    text-align: center;
+}
+
+.alert {
+    color: red;
+}
