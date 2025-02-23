@@ -16,7 +16,7 @@
     <link rel="icon" type="image/x-icon" href="./Media/Pictures/ai.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keyword" content="ai, chat, chatbot, testing, llm, artifical intelligence, language models, hugging face">
+    <meta name="keyword" content="ai, chat, chatbot, testing, llm, artifical intelligence, language models, hugging face, ia, inteligencia artificial">
     <meta name="description" content="Chatbot Playground te permite interactuar con multitud de modelos IA, comparar respuestas, y explorar el poder de los grandes modelos de lenguaje. ¡Prueba chatbots diferentes en un solo sitio!">
     <title>Chatbot Playground</title>
     <script src="./Scripts/Home.js" defer></script>
@@ -67,8 +67,8 @@
     </div>
     <div id="content">
         <header>
-            <h2 id="chatTitle">Chat</h2>
-            <img src="" id="profileIcon">
+            <h1 id="chatTitle">Bienvenido a Chatbot Playground</h1>
+            <img src="" id="profileIcon" loading="lazy">
         </header>
         <main>
             <div id="chat">

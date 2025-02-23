@@ -455,3 +455,7 @@ input[type="range"]:hover {
     background-color: red;
     border: none;
 }
+
+#chatTitle {
+    font-size: x-large;
+}

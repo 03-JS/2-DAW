@@ -20,7 +20,7 @@
 
 <body>
     <header>
-        <img src="./Media/Pictures/ai.png" alt="">
+        <img src="./Media/Pictures/ai.png" alt="Chatbot Playground logo" loading="lazy">
         <h1>Chatbot Playground</h1>
     </header>
     <main>
